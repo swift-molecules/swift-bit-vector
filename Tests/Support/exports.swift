@@ -1,1 +1,1 @@
-@_exported public import Bit_Pack_Primitives_Test_Support
+@_exported public import Bit_Pack_Test_Support

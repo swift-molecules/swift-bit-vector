@@ -1,11 +1,11 @@
-# Bit Vector Primitives
+# Bit Vector
 
 ![Development Status](https://img.shields.io/badge/status-active--development-blue.svg)
-[![CI](https://github.com/swift-primitives/swift-bit-vector-primitives/actions/workflows/ci.yml/badge.svg)](https://github.com/swift-primitives/swift-bit-vector-primitives/actions/workflows/ci.yml)
+[![CI](https://github.com/swift-molecules/swift-bit-vector/actions/workflows/ci.yml/badge.svg)](https://github.com/swift-molecules/swift-bit-vector/actions/workflows/ci.yml)
 
 `Bit.Vector` — a bit set / bit array (one `Bit` per element, word-packed) in four storage flavors behind a single protocol: **Static** (fixed-size, value-backed), **Inline** (inline, capacity-typed), **Bounded** (capacity-capped, growable), and **Dynamic** (heap-backed, growable).
 
-Pick the storage strategy that matches your size constraints; the operations — set / clear / toggle, append, subscript, `ones` / `zeros` views, population count — are the same across all four. Bits pack into `FixedWidthInteger` words via [`swift-bit-pack-primitives`](https://github.com/swift-primitives/swift-bit-pack-primitives), so N bits cost ⌈N / word-width⌉ words rather than N bytes.
+Pick the storage strategy that matches your size constraints; the operations — set / clear / toggle, append, subscript, `ones` / `zeros` views, population count — are the same across all four. Bits pack into `FixedWidthInteger` words via [`swift-bit-pack`](https://github.com/swift-molecules/swift-bit-pack), so N bits cost ⌈N / word-width⌉ words rather than N bytes.
 
 ---
 
@@ -21,7 +21,7 @@ Pick the storage strategy that matches your size constraints; the operations —
 ## Quick Start
 
 ```swift
-import Bit_Vector_Primitives
+import Bit_Vector
 
 var bits = Bit.Vector.Dynamic()
 bits.append(true)
@@ -49,7 +49,7 @@ Add the dependency to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/swift-primitives/swift-bit-vector-primitives.git", branch: "main")
+    .package(url: "https://github.com/swift-molecules/swift-bit-vector.git", branch: "main")
 ]
 ```
 
@@ -59,12 +59,12 @@ Add the umbrella product to your target:
 .target(
     name: "App",
     dependencies: [
-        .product(name: "Bit Vector Primitives", package: "swift-bit-vector-primitives")
+        .product(name: "Bit Vector", package: "swift-bit-vector")
     ]
 )
 ```
 
-Or depend on a single variant (e.g. `Bit Vector Dynamic Primitives`) — see Architecture.
+Or depend on a single variant (e.g. `Bit Vector Dynamic`) — see Architecture.
 
 Requires Swift 6.3.1 and macOS 26 / iOS 26 / tvOS 26 / watchOS 26 / visionOS 26 (or the corresponding Linux / Windows toolchain).
 
@@ -74,12 +74,12 @@ Requires Swift 6.3.1 and macOS 26 / iOS 26 / tvOS 26 / watchOS 26 / visionOS 26 
 
 | Product | Contents | When to import |
 |---------|----------|----------------|
-| `Bit Vector Primitives` | Umbrella — `Bit.Vector.Protocol` + all four variants | Most consumers |
-| `Bit Vector Dynamic Primitives` | `Bit.Vector.Dynamic` — heap-backed, growable | Unknown or large size |
-| `Bit Vector Bounded Primitives` | `Bit.Vector.Bounded` — capacity-capped, growable | Growth with an upper bound |
-| `Bit Vector Inline Primitives` | `Bit.Vector.Inline` — inline storage, capacity-typed | Small fixed capacity, no heap |
-| `Bit Vector Static Primitives` | `Bit.Vector.Static` — fixed-size, value-backed | Compile-time-fixed width |
-| `Bit Vector Primitives Test Support` | Re-exports for downstream test targets | Test target only |
+| `Bit Vector` | Umbrella — `Bit.Vector.Protocol` + all four variants | Most consumers |
+| `Bit Vector Dynamic` | `Bit.Vector.Dynamic` — heap-backed, growable | Unknown or large size |
+| `Bit Vector Bounded` | `Bit.Vector.Bounded` — capacity-capped, growable | Growth with an upper bound |
+| `Bit Vector Inline` | `Bit.Vector.Inline` — inline storage, capacity-typed | Small fixed capacity, no heap |
+| `Bit Vector Static` | `Bit.Vector.Static` — fixed-size, value-backed | Compile-time-fixed width |
+| `Bit Vector Test Support` | Re-exports for downstream test targets | Test target only |
 
 ---
 
@@ -97,11 +97,11 @@ Requires Swift 6.3.1 and macOS 26 / iOS 26 / tvOS 26 / watchOS 26 / visionOS 26 
 
 ## Related Packages
 
-- [`swift-bit-pack-primitives`](https://github.com/swift-primitives/swift-bit-pack-primitives) — the word-packing layout that backs the storage.
-- [`swift-bit-primitives`](https://github.com/swift-primitives/swift-bit-primitives) — `Bit`, the element type.
-- [`swift-sequence-primitives`](https://github.com/swift-primitives/swift-sequence-primitives) — `Sequence.Protocol`, which the `ones` / `zeros` views conform to.
-- [`swift-iterator-primitives`](https://github.com/swift-primitives/swift-iterator-primitives) — the iterators behind those views.
-- [`swift-property-primitives`](https://github.com/swift-primitives/swift-property-primitives) — the fluent-accessor machinery for the view surface.
+- [`swift-bit-pack`](https://github.com/swift-molecules/swift-bit-pack) — the word-packing layout that backs the storage.
+- [`swift-bit`](https://github.com/swift-molecules/swift-bit) — `Bit`, the element type.
+- [`swift-sequence`](https://github.com/swift-molecules/swift-sequence) — `Sequence.Protocol`, which the `ones` / `zeros` views conform to.
+- [`swift-iterator`](https://github.com/swift-molecules/swift-iterator) — the iterators behind those views.
+- [`swift-property`](https://github.com/swift-molecules/swift-property) — the fluent-accessor machinery for the view surface.
 
 ---
 

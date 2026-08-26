@@ -2,7 +2,7 @@
 # Triaged by AI-assisted bulk pass (2026-04-29).
 description: "Word-packed bit set/array with four interchangeable storage strategies -- static, inline, bounded, dynamic -- for Swift."
 topics:
-  - primitives
+  - molecules
   - bit
 homepage: "https://swift-institute.org"
 readme:

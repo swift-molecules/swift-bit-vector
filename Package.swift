@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "swift-bit-vector-primitives",
+    name: "swift-bit-vector",
     platforms: [
         .macOS(.v27),
         .iOS(.v27),
@@ -14,156 +14,156 @@ let package = Package(
     products: [
 
         .library(
-            name: "Bit Vector Storage Primitives",
-            targets: ["Bit Vector Storage Primitives"]
+            name: "Bit Vector Storage",
+            targets: ["Bit Vector Storage"]
         ),
 
         .library(
-            name: "Bit Vector Static Primitives",
-            targets: ["Bit Vector Static Primitives"]
+            name: "Bit Vector Static",
+            targets: ["Bit Vector Static"]
         ),
         .library(
-            name: "Bit Vector Bounded Primitives",
-            targets: ["Bit Vector Bounded Primitives"]
+            name: "Bit Vector Bounded",
+            targets: ["Bit Vector Bounded"]
         ),
         .library(
-            name: "Bit Vector Inline Primitives",
-            targets: ["Bit Vector Inline Primitives"]
+            name: "Bit Vector Inline",
+            targets: ["Bit Vector Inline"]
         ),
         .library(
-            name: "Bit Vector Dynamic Primitives",
-            targets: ["Bit Vector Dynamic Primitives"]
-        ),
-
-        .library(
-            name: "Bit Vector Primitives",
-            targets: ["Bit Vector Primitives"]
+            name: "Bit Vector Dynamic",
+            targets: ["Bit Vector Dynamic"]
         ),
 
         .library(
-            name: "Bit Vector Primitives Test Support",
-            targets: ["Bit Vector Primitives Test Support"]
+            name: "Bit Vector",
+            targets: ["Bit Vector"]
+        ),
+
+        .library(
+            name: "Bit Vector Test Support",
+            targets: ["Bit Vector Test Support"]
         ),
     ],
     dependencies: [
         .package(
-            url: "https://github.com/swift-primitives/swift-bit-primitives.git",
+            url: "https://github.com/swift-molecules/swift-bit.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-primitives/swift-bit-pack-primitives.git",
+            url: "https://github.com/swift-molecules/swift-bit-pack.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-primitives/swift-index-primitives.git",
+            url: "https://github.com/swift-molecules/swift-index.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-primitives/swift-property-primitives.git",
+            url: "https://github.com/swift-molecules/swift-property.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-primitives/swift-sequence-primitives.git",
+            url: "https://github.com/swift-molecules/swift-sequence.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-primitives/swift-iterator-primitives.git",
+            url: "https://github.com/swift-molecules/swift-iterator.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-primitives/swift-affine-primitives.git",
+            url: "https://github.com/swift-molecules/swift-affine.git",
             branch: "main"
         ),
     ],
     targets: [
 
         .target(
-            name: "Bit Vector Storage Primitives",
+            name: "Bit Vector Storage",
             dependencies: [
-                .product(name: "Bit Primitives", package: "swift-bit-primitives"),
-                .product(name: "Bit Pack Primitives", package: "swift-bit-pack-primitives"),
-                .product(name: "Index Primitives", package: "swift-index-primitives"),
-                .product(name: "Property Primitives", package: "swift-property-primitives"),
-                .product(name: "Sequence Primitives", package: "swift-sequence-primitives"),
-                .product(name: "Iterable", package: "swift-iterator-primitives"),
-                .product(name: "Iterator Primitive", package: "swift-iterator-primitives"),
-                .product(name: "Iterator Chunk Primitives", package: "swift-iterator-primitives"),
+                .product(name: "Bit", package: "swift-bit"),
+                .product(name: "Bit Pack", package: "swift-bit-pack"),
+                .product(name: "Index", package: "swift-index"),
+                .product(name: "Property", package: "swift-property"),
+                .product(name: "Sequence", package: "swift-sequence"),
+                .product(name: "Iterable", package: "swift-iterator"),
+                .product(name: "Iterator Primitive", package: "swift-iterator"),
+                .product(name: "Iterator Chunk", package: "swift-iterator"),
             ]
         ),
 
         .target(
-            name: "Bit Vector Static Primitives",
+            name: "Bit Vector Static",
             dependencies: [
-                "Bit Vector Storage Primitives",
-                .product(name: "Bit Primitives", package: "swift-bit-primitives"),
-                .product(name: "Sequence Primitives", package: "swift-sequence-primitives"),
-                .product(name: "Iterator Primitive", package: "swift-iterator-primitives"),
-                .product(name: "Iterator Chunk Primitives", package: "swift-iterator-primitives"),
-                .product(name: "Affine Primitives", package: "swift-affine-primitives"),
+                "Bit Vector Storage",
+                .product(name: "Bit", package: "swift-bit"),
+                .product(name: "Sequence", package: "swift-sequence"),
+                .product(name: "Iterator Primitive", package: "swift-iterator"),
+                .product(name: "Iterator Chunk", package: "swift-iterator"),
+                .product(name: "Affine", package: "swift-affine"),
             ]
         ),
         .target(
-            name: "Bit Vector Bounded Primitives",
+            name: "Bit Vector Bounded",
             dependencies: [
-                "Bit Vector Storage Primitives",
-                .product(name: "Index Primitives", package: "swift-index-primitives"),
-                .product(name: "Property Primitives", package: "swift-property-primitives"),
-                .product(name: "Sequence Primitives", package: "swift-sequence-primitives"),
-                .product(name: "Iterator Primitive", package: "swift-iterator-primitives"),
-                .product(name: "Iterator Chunk Primitives", package: "swift-iterator-primitives"),
-                .product(name: "Affine Primitives", package: "swift-affine-primitives"),
+                "Bit Vector Storage",
+                .product(name: "Index", package: "swift-index"),
+                .product(name: "Property", package: "swift-property"),
+                .product(name: "Sequence", package: "swift-sequence"),
+                .product(name: "Iterator Primitive", package: "swift-iterator"),
+                .product(name: "Iterator Chunk", package: "swift-iterator"),
+                .product(name: "Affine", package: "swift-affine"),
             ]
         ),
         .target(
-            name: "Bit Vector Inline Primitives",
+            name: "Bit Vector Inline",
             dependencies: [
-                "Bit Vector Storage Primitives",
-                .product(name: "Index Primitives", package: "swift-index-primitives"),
-                .product(name: "Property Primitives", package: "swift-property-primitives"),
-                .product(name: "Sequence Primitives", package: "swift-sequence-primitives"),
-                .product(name: "Iterator Primitive", package: "swift-iterator-primitives"),
-                .product(name: "Iterator Chunk Primitives", package: "swift-iterator-primitives"),
-                .product(name: "Affine Primitives", package: "swift-affine-primitives"),
+                "Bit Vector Storage",
+                .product(name: "Index", package: "swift-index"),
+                .product(name: "Property", package: "swift-property"),
+                .product(name: "Sequence", package: "swift-sequence"),
+                .product(name: "Iterator Primitive", package: "swift-iterator"),
+                .product(name: "Iterator Chunk", package: "swift-iterator"),
+                .product(name: "Affine", package: "swift-affine"),
             ]
         ),
         .target(
-            name: "Bit Vector Dynamic Primitives",
+            name: "Bit Vector Dynamic",
             dependencies: [
-                "Bit Vector Storage Primitives",
-                "Bit Vector Bounded Primitives",
-                "Bit Vector Inline Primitives",
-                .product(name: "Property Primitives", package: "swift-property-primitives"),
-                .product(name: "Affine Primitives", package: "swift-affine-primitives"),
-            ]
-        ),
-
-        .target(
-            name: "Bit Vector Primitives",
-            dependencies: [
-                "Bit Vector Storage Primitives",
-                "Bit Vector Static Primitives",
-                "Bit Vector Bounded Primitives",
-                "Bit Vector Inline Primitives",
-                "Bit Vector Dynamic Primitives",
+                "Bit Vector Storage",
+                "Bit Vector Bounded",
+                "Bit Vector Inline",
+                .product(name: "Property", package: "swift-property"),
+                .product(name: "Affine", package: "swift-affine"),
             ]
         ),
 
         .target(
-            name: "Bit Vector Primitives Test Support",
+            name: "Bit Vector",
             dependencies: [
-                "Bit Vector Primitives",
+                "Bit Vector Storage",
+                "Bit Vector Static",
+                "Bit Vector Bounded",
+                "Bit Vector Inline",
+                "Bit Vector Dynamic",
+            ]
+        ),
+
+        .target(
+            name: "Bit Vector Test Support",
+            dependencies: [
+                "Bit Vector",
                 .product(
-                    name: "Bit Pack Primitives Test Support",
-                    package: "swift-bit-pack-primitives"
+                    name: "Bit Pack Test Support",
+                    package: "swift-bit-pack"
                 ),
             ],
             path: "Tests/Support"
         ),
         .testTarget(
-            name: "Bit Vector Primitives Tests",
+            name: "Bit Vector Tests",
             dependencies: [
-                "Bit Vector Primitives",
-                "Bit Vector Primitives Test Support",
+                "Bit Vector",
+                "Bit Vector Test Support",
             ]
         ),
     ],
