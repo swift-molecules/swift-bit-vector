@@ -1,6 +1,6 @@
 extension Bit.Vector.Dynamic: Swift.Sequence {
 
-    public struct Iterator: Iterator_Primitive.Iterator.`Protocol`, IteratorProtocol, Sendable {
+    public struct Iterator: BitVectorElementIteratorProtocol, IteratorProtocol, Sendable {
         @usableFromInline
         let storage: ContiguousArray<UInt>
 

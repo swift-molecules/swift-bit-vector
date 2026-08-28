@@ -1,4 +1,3 @@
-import Index
 
 extension Bit.Vector {
 

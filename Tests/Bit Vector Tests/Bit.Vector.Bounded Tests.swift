@@ -10,7 +10,7 @@ enum BitVectorBoundedTests {
 extension BitVectorBoundedTests.Unit {
     @Test
     func `Create empty with capacity`() throws {
-        let bits = try Bit.Vector.Bounded(capacity: 100)
+        let bits = Bit.Vector.Bounded(capacity: 100)
         #expect(bits.isEmpty)
         #expect(bits.count == 0)
         #expect(!bits.isFull)
@@ -18,7 +18,7 @@ extension BitVectorBoundedTests.Unit {
 
     @Test
     func `Append and subscript`() throws {
-        var bits = try Bit.Vector.Bounded(capacity: 64)
+        var bits = Bit.Vector.Bounded(capacity: 64)
 
         try bits.append(true)
         try bits.append(false)
@@ -32,7 +32,7 @@ extension BitVectorBoundedTests.Unit {
 
     @Test
     func `Overflow throws`() throws {
-        var bits = try Bit.Vector.Bounded(capacity: 2)
+        var bits = Bit.Vector.Bounded(capacity: 2)
         try bits.append(true)
         try bits.append(false)
 
@@ -43,7 +43,7 @@ extension BitVectorBoundedTests.Unit {
 
     @Test
     func `popLast`() throws {
-        var bits = try Bit.Vector.Bounded(capacity: 64)
+        var bits = Bit.Vector.Bounded(capacity: 64)
         try bits.append(true)
         try bits.append(false)
 
@@ -93,7 +93,7 @@ extension BitVectorBoundedTests.Unit {
 
     @Test
     func `capacity.maximum and capacity.remaining`() throws {
-        var bits = try Bit.Vector.Bounded(capacity: 128)
+        var bits = Bit.Vector.Bounded(capacity: 128)
         try bits.append(true)
         try bits.append(false)
 
@@ -103,7 +103,7 @@ extension BitVectorBoundedTests.Unit {
 
     @Test
     func `Iteration`() throws {
-        var bits = try Bit.Vector.Bounded(capacity: 64)
+        var bits = Bit.Vector.Bounded(capacity: 64)
         try bits.append(true)
         try bits.append(false)
         try bits.append(true)
@@ -118,8 +118,8 @@ extension BitVectorBoundedTests.Unit {
 
     @Test
     func `Equality`() throws {
-        var a = try Bit.Vector.Bounded(capacity: 64)
-        var b = try Bit.Vector.Bounded(capacity: 64)
+        var a = Bit.Vector.Bounded(capacity: 64)
+        var b = Bit.Vector.Bounded(capacity: 64)
 
         try a.append(true)
         try a.append(false)
@@ -135,7 +135,7 @@ extension BitVectorBoundedTests.Unit {
 
     @Test
     func `Description`() throws {
-        var bits = try Bit.Vector.Bounded(capacity: 64)
+        var bits = Bit.Vector.Bounded(capacity: 64)
         try bits.append(true)
         try bits.append(false)
 
@@ -170,7 +170,7 @@ extension BitVectorBoundedTests.`Edge Case` {
 
     @Test
     func `Full capacity`() throws {
-        var bits = try Bit.Vector.Bounded(capacity: 2)
+        var bits = Bit.Vector.Bounded(capacity: 2)
         try bits.append(true)
         try bits.append(true)
         #expect(bits.isFull)

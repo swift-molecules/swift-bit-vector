@@ -1,4 +1,10 @@
+import Tagged_Carrier
+import Cardinal_Tagged
+public import Cardinal_Hash
+import Ordinal_Tagged
 import Affine
+import Cardinal
+import Tagged
 
 extension Bit.Vector {
 
@@ -6,7 +12,9 @@ extension Bit.Vector {
 
         @inlinable
         public static var _capacity: Bit.Index.Count {
-            Bit.Index.Count(Cardinal(UInt(wordCount * UInt.bitWidth)))
+            Tagged<Bit, Cardinal>(
+                _unchecked: Cardinal(UInt(wordCount * UInt.bitWidth))
+            )
         }
 
         @usableFromInline

@@ -1,4 +1,7 @@
-import Index
+import Tagged_Carrier
+import Cardinal
+import Ordinal
+import Tagged
 
 extension Bit.Vector.Ones {
 
@@ -9,7 +12,7 @@ extension Bit.Vector.Ones {
         let _words: UnsafeMutablePointer<UInt>
 
         @usableFromInline
-        let _wordCount: Index.Index<UInt>.Count
+        let _wordCount: Tagged<UInt, Cardinal>
 
         @usableFromInline
         let _capacity: Bit.Index.Count

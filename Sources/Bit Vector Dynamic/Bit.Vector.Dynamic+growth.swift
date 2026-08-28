@@ -1,4 +1,7 @@
+import Tagged_Carrier
+import Cardinal_Tagged
 import Affine
+public import Affine_Carrier
 
 extension Bit.Vector.Dynamic {
 
@@ -19,7 +22,7 @@ extension Bit.Vector.Dynamic {
 
     @inlinable
     public mutating func append(_ bit: Bit) {
-        append(Bool(bit))
+        append(bit == .one)
     }
 
     @discardableResult

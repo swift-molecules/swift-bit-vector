@@ -1,3 +1,6 @@
+import Tagged_Carrier
+import Cardinal_Tagged
+public import Cardinal_Hash
 import Affine
 
 extension Bit.Vector {
@@ -36,7 +39,7 @@ extension Bit.Vector {
 
         @inlinable
         public init(repeating bit: Bit, count: Bit.Index.Count) {
-            self.init(repeating: Bool(bit), count: count)
+            self.init(repeating: bit == .one, count: count)
         }
 
         @inlinable
@@ -51,7 +54,7 @@ extension Bit.Vector {
         public init<S: Swift.Sequence>(_ elements: S) where S.Element == Bit {
             self.init()
             for element in elements {
-                append(Bool(element))
+                append(element == .one)
             }
         }
 

@@ -1,3 +1,5 @@
+public import Cardinal_Hash
+
 extension Bit.Vector.Dynamic: Equatable {
 
     @inlinable

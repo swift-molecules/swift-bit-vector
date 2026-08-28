@@ -1,5 +1,7 @@
 import Property
 
+public import Cardinal_Hash
+
 extension Bit.Vector.Bounded {
 
     public enum All: Sendable {}

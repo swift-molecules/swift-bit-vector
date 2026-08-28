@@ -1,9 +1,12 @@
-import Index
+import Tagged_Carrier
+import Cardinal
+import Ordinal
+import Tagged
 
 extension Bit.Vector.Zeros.Inline {
 
     @safe
-    public struct Iterator: Iterator_Primitive.Iterator.`Protocol`, IteratorProtocol {
+    public struct ElementIterator: BitVectorElementIteratorProtocol, IteratorProtocol {
         @usableFromInline
         let _storage: InlineArray<wordCount, UInt>
 
@@ -30,7 +33,7 @@ extension Bit.Vector.Zeros.Inline {
     }
 }
 
-extension Bit.Vector.Zeros.Inline.Iterator {
+extension Bit.Vector.Zeros.Inline.ElementIterator {
 
     @inlinable
     public mutating func next() -> Bit.Index? {
@@ -44,10 +47,15 @@ extension Bit.Vector.Zeros.Inline.Iterator {
         let bitPosition = _currentWord.trailingZeroBitCount
         _currentWord &= _currentWord &- 1
 
-        let wordCount = Index.Index<UInt>.Count(Cardinal(UInt(_wordIndex)))
+        let wordCount = Tagged<UInt, Cardinal>(
+            _unchecked: Cardinal(UInt(_wordIndex))
+        )
         let baseBitCount = wordCount * .bitsPerWord
         let globalIndex =
-            baseBitCount.map(Ordinal.init) + Bit.Index.Count(Cardinal(UInt(bitPosition)))
+            baseBitCount.map(Ordinal.init)
+                + Tagged<Bit, Cardinal>(
+                    _unchecked: Cardinal(UInt(bitPosition))
+                )
 
         guard globalIndex < _capacity else { return nil }
         return globalIndex

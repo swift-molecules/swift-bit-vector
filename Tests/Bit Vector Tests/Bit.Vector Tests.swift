@@ -1,8 +1,7 @@
 import Bit_Vector
 import Bit_Vector_Test_Support
 import Cardinal
-import Iterator_Chunk
-import Iterator_Primitive
+import Iterator
 import Testing
 
 extension Bit.Vector {
@@ -104,7 +103,7 @@ extension Bit.Vector {
         @Test
         func `iterableMakeIterator holds across the vector's lifetime`() {
             let capacity: Bit.Index.Count = 16
-            var bits = Bit.Vector(capacity: capacity)
+            let bits = Bit.Vector(capacity: capacity)
             bits[3] = true
             bits[9] = true
 

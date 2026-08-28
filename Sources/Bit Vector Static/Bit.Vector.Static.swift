@@ -1,4 +1,7 @@
+import Tagged_Carrier
 public import Bit
+import Cardinal
+import Tagged
 
 extension Bit.Vector {
 
@@ -8,7 +11,9 @@ extension Bit.Vector {
 
         @inlinable
         public static var capacity: Bit.Index.Count {
-            Bit.Index.Count(Cardinal(UInt(wordCount * UInt.bitWidth)))
+            Tagged<Bit, Cardinal>(
+                _unchecked: Cardinal(UInt(wordCount * UInt.bitWidth))
+            )
         }
 
         @inlinable

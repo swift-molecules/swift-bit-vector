@@ -1,4 +1,7 @@
 import Property
+public import Cardinal_Hash
+import Ownership
+import Property_Ownership
 
 extension Bit.Vector.Inline {
 

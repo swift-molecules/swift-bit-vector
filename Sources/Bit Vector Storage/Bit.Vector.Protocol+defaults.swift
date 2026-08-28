@@ -1,5 +1,10 @@
-import Index
+import Tagged_Carrier
+import Cardinal
+import Ordinal_Comparison
+import Ownership
 import Property
+import Property_Ownership
+import Tagged
 
 extension Bit.Vector.`Protocol` where Self: ~Copyable {
 
@@ -17,7 +22,7 @@ extension Bit.Vector.`Protocol` where Self: ~Copyable {
         for i in 0..<wordCount {
             total += UInt(word(at: i).nonzeroBitCount)
         }
-        return Bit.Index.Count(Cardinal(total))
+        return Tagged<Bit, Cardinal>(_unchecked: Cardinal(total))
     }
 }
 

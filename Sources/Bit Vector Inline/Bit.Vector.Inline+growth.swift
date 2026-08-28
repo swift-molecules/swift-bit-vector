@@ -1,4 +1,5 @@
 import Affine
+import Cardinal_Tagged
 
 extension Bit.Vector.Inline {
 
@@ -16,7 +17,7 @@ extension Bit.Vector.Inline {
 
     @inlinable
     public mutating func append(_ bit: Bit) throws(Self.Error) {
-        try append(Bool(bit))
+        try append(bit == .one)
     }
 
     @discardableResult

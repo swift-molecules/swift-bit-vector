@@ -1,3 +1,4 @@
+import Tagged_Carrier
 extension Bit.Vector.Static: Bit.Vector.`Protocol` {
 
     @inlinable

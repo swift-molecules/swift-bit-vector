@@ -1,3 +1,7 @@
+import Tagged_Carrier
+import Cardinal_Tagged
+public import Cardinal_Hash
+import Ordinal_Tagged
 import Affine
 
 extension Bit.Vector {

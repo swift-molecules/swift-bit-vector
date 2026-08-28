@@ -1,3 +1,8 @@
+import Tagged_Carrier
+import Ordinal_Tagged
+import Cardinal
+import Ordinal
+import Tagged
 import Affine
 
 extension Bit.Vector.Inline {
@@ -33,10 +38,10 @@ extension Bit.Vector.Inline {
     public mutating func setAll() {
         let pack = Bit.Pack<UInt>(count: _count, bitsPerWord: .bitsPerWord)
         let end = pack.words.count.map(Ordinal.init)
-        var w: Index<UInt> = .zero
+        var w: Tagged<UInt, Ordinal> = .zero
         while w < end {
             _storage[w] = ~0
-            w += Index<UInt>.Count.one
+            w += Tagged<UInt, Cardinal>.one
         }
         if pack.bits.unused > .zero && pack.words.count > .zero {
 

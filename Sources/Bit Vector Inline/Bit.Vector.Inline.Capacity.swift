@@ -1,4 +1,8 @@
+import Tagged_Carrier
+import Cardinal_Tagged
+import Ownership
 import Property
+import Property_Ownership
 
 extension Bit.Vector.Inline {
 

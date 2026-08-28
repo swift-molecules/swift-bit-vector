@@ -13,7 +13,7 @@ Pick the storage strategy that matches your size constraints; the operations —
 
 - **Four storage strategies, one protocol** — `Bit.Vector.Protocol` is implemented by `Bit.Vector.Static`, `.Inline`, `.Bounded`, and `.Dynamic`. Swap the storage; the API stays put.
 - **Bit set / array operations** — `append`, subscript get/set, `popLast` / `removeLast` / `removeAll`, `count` / `isEmpty`, plus `set` / `clear` / `toggle` over single indices and ranges.
-- **Ones / zeros views** — `.ones` and `.zeros` iterate the set / clear bit positions lazily as `Sequence.Protocol` views — population queries without materializing an index array.
+- **Ones / zeros views** — `.ones` and `.zeros` iterate set / clear positions lazily through both native `Sequence` and Institute `Iterable` surfaces.
 - **Word-packed storage** — bits are packed into fixed-width-integer words, so memory is ⌈N / word-width⌉ words, not N bytes or N bools.
 
 ---
@@ -66,7 +66,7 @@ Add the umbrella product to your target:
 
 Or depend on a single variant (e.g. `Bit Vector Dynamic`) — see Architecture.
 
-Requires Swift 6.3.1 and macOS 26 / iOS 26 / tvOS 26 / watchOS 26 / visionOS 26 (or the corresponding Linux / Windows toolchain).
+Requires Swift 6.4 and macOS 27 / iOS 27 / tvOS 27 / watchOS 27 / visionOS 27 (or the corresponding Linux / Windows toolchain).
 
 ---
 
@@ -87,7 +87,7 @@ Requires Swift 6.3.1 and macOS 26 / iOS 26 / tvOS 26 / watchOS 26 / visionOS 26 
 
 | Platform         | CI  | Status       |
 |------------------|-----|--------------|
-| macOS 26         | Yes | Full support |
+| macOS 27         | Yes | Full support |
 | Linux            | Yes | Full support |
 | Windows          | Yes | Full support |
 | iOS/tvOS/watchOS | —   | Supported    |
@@ -98,10 +98,10 @@ Requires Swift 6.3.1 and macOS 26 / iOS 26 / tvOS 26 / watchOS 26 / visionOS 26 
 ## Related Packages
 
 - [`swift-bit-pack`](https://github.com/swift-molecules/swift-bit-pack) — the word-packing layout that backs the storage.
-- [`swift-bit`](https://github.com/swift-molecules/swift-bit) — `Bit`, the element type.
-- [`swift-sequence`](https://github.com/swift-molecules/swift-sequence) — `Sequence.Protocol`, which the `ones` / `zeros` views conform to.
-- [`swift-iterator`](https://github.com/swift-molecules/swift-iterator) — the iterators behind those views.
-- [`swift-property`](https://github.com/swift-molecules/swift-property) — the fluent-accessor machinery for the view surface.
+- [`swift-bit`](https://github.com/swift-atoms/swift-bit) — `Bit`, the element type.
+- [`swift-sequence`](https://github.com/swift-atoms/swift-sequence) — sequence operations shared by the views.
+- [`swift-iterator`](https://github.com/swift-atoms/swift-iterator) — `Iterable` and the iterators behind those views.
+- [`swift-property`](https://github.com/swift-atoms/swift-property) — the fluent-accessor machinery for the view surface.
 
 ---
 

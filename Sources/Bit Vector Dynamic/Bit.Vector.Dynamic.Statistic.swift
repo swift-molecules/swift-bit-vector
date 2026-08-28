@@ -1,3 +1,5 @@
+import Tagged_Carrier
+import Cardinal_Tagged
 import Property
 
 extension Bit.Vector.Dynamic {

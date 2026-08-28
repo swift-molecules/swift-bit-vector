@@ -47,7 +47,7 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/swift-molecules/swift-bit.git",
+            url: "https://github.com/swift-atoms/swift-bit.git",
             branch: "main"
         ),
         .package(
@@ -55,23 +55,83 @@ let package = Package(
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-molecules/swift-index.git",
+            url: "https://github.com/swift-atoms/swift-property.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-molecules/swift-property.git",
+            url: "https://github.com/swift-atoms/swift-ownership.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-molecules/swift-sequence.git",
+            url: "https://github.com/swift-atoms/swift-sequence.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-molecules/swift-iterator.git",
+            url: "https://github.com/swift-atoms/swift-iterator.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-molecules/swift-affine.git",
+            url: "https://github.com/swift-atoms/swift-affine.git",
+            branch: "main"
+        ),
+        .package(
+            url: "https://github.com/swift-atoms/swift-cardinal.git",
+            branch: "main"
+        ),
+        .package(
+            url: "https://github.com/swift-atoms/swift-ordinal.git",
+            branch: "main"
+        ),
+        .package(
+            url: "https://github.com/swift-atoms/swift-tagged.git",
+            branch: "main"
+        ),
+        .package(
+            url: "https://github.com/swift-molecules/swift-affine-tagged.git",
+            branch: "main"
+        ),
+        .package(
+            url: "https://github.com/swift-molecules/swift-affine-carrier.git",
+            branch: "main"
+        ),
+        .package(
+            url: "https://github.com/swift-molecules/swift-cardinal-property.git",
+            branch: "main"
+        ),
+        .package(
+            url: "https://github.com/swift-molecules/swift-cardinal-carrier.git",
+            branch: "main"
+        ),
+        .package(
+            url: "https://github.com/swift-molecules/swift-cardinal-comparison.git",
+            branch: "main"
+        ),
+        .package(
+            url: "https://github.com/swift-molecules/swift-cardinal-hash.git",
+            branch: "main"
+        ),
+        .package(
+            url: "https://github.com/swift-molecules/swift-cardinal-tagged.git",
+            branch: "main"
+        ),
+        .package(
+            url: "https://github.com/swift-molecules/swift-ordinal-cardinal.git",
+            branch: "main"
+        ),
+        .package(
+            url: "https://github.com/swift-molecules/swift-ordinal-comparison.git",
+            branch: "main"
+        ),
+        .package(
+            url: "https://github.com/swift-molecules/swift-ordinal-tagged.git",
+            branch: "main"
+        ),
+        .package(
+            url: "https://github.com/swift-molecules/swift-property-ownership.git",
+            branch: "main"
+        ),
+        .package(
+            url: "https://github.com/swift-molecules/swift-tagged-carrier.git",
             branch: "main"
         ),
     ],
@@ -82,12 +142,23 @@ let package = Package(
             dependencies: [
                 .product(name: "Bit", package: "swift-bit"),
                 .product(name: "Bit Pack", package: "swift-bit-pack"),
-                .product(name: "Index", package: "swift-index"),
                 .product(name: "Property", package: "swift-property"),
+                .product(name: "Ownership", package: "swift-ownership"),
                 .product(name: "Sequence", package: "swift-sequence"),
-                .product(name: "Iterable", package: "swift-iterator"),
-                .product(name: "Iterator Primitive", package: "swift-iterator"),
-                .product(name: "Iterator Chunk", package: "swift-iterator"),
+                .product(name: "Iterator", package: "swift-iterator"),
+                .product(name: "Cardinal", package: "swift-cardinal"),
+                .product(name: "Ordinal", package: "swift-ordinal"),
+                .product(name: "Tagged", package: "swift-tagged"),
+                .product(name: "Affine Tagged", package: "swift-affine-tagged"),
+                .product(name: "Cardinal Carrier", package: "swift-cardinal-carrier"),
+                .product(name: "Cardinal Comparison", package: "swift-cardinal-comparison"),
+                .product(name: "Cardinal Property", package: "swift-cardinal-property"),
+                .product(name: "Cardinal Tagged", package: "swift-cardinal-tagged"),
+                .product(name: "Ordinal Cardinal", package: "swift-ordinal-cardinal"),
+                .product(name: "Ordinal Comparison", package: "swift-ordinal-comparison"),
+                .product(name: "Ordinal Tagged", package: "swift-ordinal-tagged"),
+                .product(name: "Property Ownership", package: "swift-property-ownership"),
+                .product(name: "Tagged Carrier", package: "swift-tagged-carrier"),
             ]
         ),
 
@@ -97,33 +168,68 @@ let package = Package(
                 "Bit Vector Storage",
                 .product(name: "Bit", package: "swift-bit"),
                 .product(name: "Sequence", package: "swift-sequence"),
-                .product(name: "Iterator Primitive", package: "swift-iterator"),
-                .product(name: "Iterator Chunk", package: "swift-iterator"),
+                .product(name: "Iterator", package: "swift-iterator"),
                 .product(name: "Affine", package: "swift-affine"),
+                .product(name: "Cardinal", package: "swift-cardinal"),
+                .product(name: "Ordinal", package: "swift-ordinal"),
+                .product(name: "Tagged", package: "swift-tagged"),
+                .product(name: "Affine Tagged", package: "swift-affine-tagged"),
+                .product(name: "Cardinal Carrier", package: "swift-cardinal-carrier"),
+                .product(name: "Cardinal Comparison", package: "swift-cardinal-comparison"),
+                .product(name: "Cardinal Tagged", package: "swift-cardinal-tagged"),
+                .product(name: "Ordinal Cardinal", package: "swift-ordinal-cardinal"),
+                .product(name: "Ordinal Comparison", package: "swift-ordinal-comparison"),
+                .product(name: "Ordinal Tagged", package: "swift-ordinal-tagged"),
+                .product(name: "Tagged Carrier", package: "swift-tagged-carrier"),
             ]
         ),
         .target(
             name: "Bit Vector Bounded",
             dependencies: [
                 "Bit Vector Storage",
-                .product(name: "Index", package: "swift-index"),
                 .product(name: "Property", package: "swift-property"),
                 .product(name: "Sequence", package: "swift-sequence"),
-                .product(name: "Iterator Primitive", package: "swift-iterator"),
-                .product(name: "Iterator Chunk", package: "swift-iterator"),
+                .product(name: "Iterator", package: "swift-iterator"),
                 .product(name: "Affine", package: "swift-affine"),
+                .product(name: "Cardinal", package: "swift-cardinal"),
+                .product(name: "Ordinal", package: "swift-ordinal"),
+                .product(name: "Tagged", package: "swift-tagged"),
+                .product(name: "Affine Tagged", package: "swift-affine-tagged"),
+                .product(name: "Cardinal Carrier", package: "swift-cardinal-carrier"),
+                .product(name: "Cardinal Comparison", package: "swift-cardinal-comparison"),
+                .product(name: "Cardinal Hash", package: "swift-cardinal-hash"),
+                .product(name: "Cardinal Property", package: "swift-cardinal-property"),
+                .product(name: "Cardinal Tagged", package: "swift-cardinal-tagged"),
+                .product(name: "Ordinal Cardinal", package: "swift-ordinal-cardinal"),
+                .product(name: "Ordinal Comparison", package: "swift-ordinal-comparison"),
+                .product(name: "Ordinal Tagged", package: "swift-ordinal-tagged"),
+                .product(name: "Property Ownership", package: "swift-property-ownership"),
+                .product(name: "Tagged Carrier", package: "swift-tagged-carrier"),
             ]
         ),
         .target(
             name: "Bit Vector Inline",
             dependencies: [
                 "Bit Vector Storage",
-                .product(name: "Index", package: "swift-index"),
                 .product(name: "Property", package: "swift-property"),
+                .product(name: "Ownership", package: "swift-ownership"),
                 .product(name: "Sequence", package: "swift-sequence"),
-                .product(name: "Iterator Primitive", package: "swift-iterator"),
-                .product(name: "Iterator Chunk", package: "swift-iterator"),
+                .product(name: "Iterator", package: "swift-iterator"),
                 .product(name: "Affine", package: "swift-affine"),
+                .product(name: "Cardinal", package: "swift-cardinal"),
+                .product(name: "Ordinal", package: "swift-ordinal"),
+                .product(name: "Tagged", package: "swift-tagged"),
+                .product(name: "Affine Tagged", package: "swift-affine-tagged"),
+                .product(name: "Cardinal Carrier", package: "swift-cardinal-carrier"),
+                .product(name: "Cardinal Comparison", package: "swift-cardinal-comparison"),
+                .product(name: "Cardinal Hash", package: "swift-cardinal-hash"),
+                .product(name: "Cardinal Property", package: "swift-cardinal-property"),
+                .product(name: "Cardinal Tagged", package: "swift-cardinal-tagged"),
+                .product(name: "Ordinal Cardinal", package: "swift-ordinal-cardinal"),
+                .product(name: "Ordinal Comparison", package: "swift-ordinal-comparison"),
+                .product(name: "Ordinal Tagged", package: "swift-ordinal-tagged"),
+                .product(name: "Property Ownership", package: "swift-property-ownership"),
+                .product(name: "Tagged Carrier", package: "swift-tagged-carrier"),
             ]
         ),
         .target(
@@ -133,7 +239,24 @@ let package = Package(
                 "Bit Vector Bounded",
                 "Bit Vector Inline",
                 .product(name: "Property", package: "swift-property"),
+                .product(name: "Ownership", package: "swift-ownership"),
+                .product(name: "Iterator", package: "swift-iterator"),
                 .product(name: "Affine", package: "swift-affine"),
+                .product(name: "Cardinal", package: "swift-cardinal"),
+                .product(name: "Ordinal", package: "swift-ordinal"),
+                .product(name: "Tagged", package: "swift-tagged"),
+                .product(name: "Affine Tagged", package: "swift-affine-tagged"),
+                .product(name: "Affine Carrier", package: "swift-affine-carrier"),
+                .product(name: "Cardinal Carrier", package: "swift-cardinal-carrier"),
+                .product(name: "Cardinal Comparison", package: "swift-cardinal-comparison"),
+                .product(name: "Cardinal Hash", package: "swift-cardinal-hash"),
+                .product(name: "Cardinal Property", package: "swift-cardinal-property"),
+                .product(name: "Cardinal Tagged", package: "swift-cardinal-tagged"),
+                .product(name: "Ordinal Cardinal", package: "swift-ordinal-cardinal"),
+                .product(name: "Ordinal Comparison", package: "swift-ordinal-comparison"),
+                .product(name: "Ordinal Tagged", package: "swift-ordinal-tagged"),
+                .product(name: "Property Ownership", package: "swift-property-ownership"),
+                .product(name: "Tagged Carrier", package: "swift-tagged-carrier"),
             ]
         ),
 
@@ -152,6 +275,18 @@ let package = Package(
             name: "Bit Vector Test Support",
             dependencies: [
                 "Bit Vector",
+                .product(
+                    name: "Cardinal Standard Library Integration",
+                    package: "swift-cardinal"
+                ),
+                .product(
+                    name: "Ordinal Standard Library Integration",
+                    package: "swift-ordinal"
+                ),
+                .product(
+                    name: "Tagged Standard Library Integration",
+                    package: "swift-tagged"
+                ),
                 .product(
                     name: "Bit Pack Test Support",
                     package: "swift-bit-pack"

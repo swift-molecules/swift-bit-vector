@@ -1,3 +1,7 @@
+import Tagged_Carrier
+import Cardinal
+import Ordinal
+import Tagged
 import Affine
 
 extension Bit.Vector.Dynamic {
@@ -17,10 +21,10 @@ extension Bit.Vector.Dynamic {
         let end = pack.words.count.map(Ordinal.init)
         self._storage = ContiguousArray<UInt>()
         self._storage.reserveCapacity(pack.words.count)
-        var w: Index<UInt> = .zero
+        var w: Tagged<UInt, Ordinal> = .zero
         while w < end {
             self._storage.append(inline._storage[w])
-            w += Index<UInt>.Count.one
+            w += Tagged<UInt, Cardinal>.one
         }
         self._count = inline._count
     }

@@ -1,3 +1,4 @@
+import Tagged_Carrier
 extension Bit.Vector.Inline: Bit.Vector.`Protocol` {
 
     @inlinable

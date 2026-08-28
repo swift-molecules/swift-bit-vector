@@ -1,6 +1,6 @@
+import Tagged_Carrier
 import Affine
-public import Iterator_Chunk
-public import Iterator_Primitive
+public import Iterator
 import Sequence
 
 extension Bit.Vector.Zeros {
@@ -42,20 +42,20 @@ extension Bit.Vector.Zeros.Static: Iterable {
     public typealias Element = Bit.Index
 
     @_implements(Iterable,Iterator)
-    public typealias IterableIterator = Iterator_Primitive.Iterator.Materializing<Iterator>
+    public typealias IterableIterator = BitVectorMaterializingIterator<ElementIterator>
 
     @inlinable
     @_lifetime(borrow self)
     @_implements(Iterable,makeIterator())
     public borrowing func iterableMakeIterator()
-        -> Iterator_Primitive.Iterator.Materializing<Iterator>
+        -> BitVectorMaterializingIterator<ElementIterator>
     {
-        Iterator_Primitive.Iterator.Materializing(Iterator(storage: _storage))
+        BitVectorMaterializingIterator(ElementIterator(storage: _storage))
     }
 
     @inlinable
-    public func makeIterator() -> Iterator {
-        Iterator(storage: _storage)
+    public func makeIterator() -> ElementIterator {
+        ElementIterator(storage: _storage)
     }
 }
 

@@ -1,3 +1,8 @@
+import Cardinal_Carrier
+import Tagged_Carrier
+import Cardinal
+import Ordinal
+import Tagged
 public import Bit
 
 extension Bit {
@@ -8,7 +13,7 @@ extension Bit {
         package var _words: UnsafeMutablePointer<UInt>
 
         @usableFromInline
-        package let _wordCount: Index.Index<UInt>.Count
+        package let _wordCount: Tagged<UInt, Cardinal>
 
         public let capacity: Bit.Index.Count
 

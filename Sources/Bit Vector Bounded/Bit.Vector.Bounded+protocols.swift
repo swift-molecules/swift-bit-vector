@@ -1,3 +1,8 @@
+import Tagged_Carrier
+public import Cardinal_Hash
+import Cardinal
+import Ordinal
+import Tagged
 extension Bit.Vector.Bounded: Equatable {
 
     @inlinable
@@ -5,10 +10,10 @@ extension Bit.Vector.Bounded: Equatable {
         guard lhs._count == rhs._count else { return false }
         let pack = Bit.Pack<UInt>(count: lhs._count, bitsPerWord: .bitsPerWord)
         let end = pack.words.count.map(Ordinal.init)
-        var w: Index<UInt> = .zero
+        var w: Tagged<UInt, Ordinal> = .zero
         while w < end {
             if lhs._storage[w] != rhs._storage[w] { return false }
-            w += Index<UInt>.Count.one
+            w += Tagged<UInt, Cardinal>.one
         }
         return true
     }
@@ -21,10 +26,10 @@ extension Bit.Vector.Bounded: Hashable {
         let pack = Bit.Pack<UInt>(count: _count, bitsPerWord: .bitsPerWord)
         let end = pack.words.count.map(Ordinal.init)
         hasher.combine(_count)
-        var w: Index<UInt> = .zero
+        var w: Tagged<UInt, Ordinal> = .zero
         while w < end {
             hasher.combine(_storage[w])
-            w += Index<UInt>.Count.one
+            w += Tagged<UInt, Cardinal>.one
         }
     }
 }

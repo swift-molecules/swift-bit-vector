@@ -1,4 +1,10 @@
+import Tagged_Carrier
+import Cardinal_Tagged
+import Ordinal_Comparison
+import Ordinal_Tagged
+import Ownership
 import Property
+import Property_Ownership
 
 extension Property.Inout where Tag == Bit.Vector.Clear, Base: Bit.Vector.`Protocol` & ~Copyable {
 
