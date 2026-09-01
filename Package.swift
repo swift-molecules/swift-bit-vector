@@ -87,43 +87,7 @@ let package = Package(
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-molecules/swift-affine-tagged.git",
-            branch: "main"
-        ),
-        .package(
-            url: "https://github.com/swift-molecules/swift-affine-carrier.git",
-            branch: "main"
-        ),
-        .package(
             url: "https://github.com/swift-molecules/swift-cardinal-property.git",
-            branch: "main"
-        ),
-        .package(
-            url: "https://github.com/swift-molecules/swift-cardinal-carrier.git",
-            branch: "main"
-        ),
-        .package(
-            url: "https://github.com/swift-molecules/swift-cardinal-comparison.git",
-            branch: "main"
-        ),
-        .package(
-            url: "https://github.com/swift-molecules/swift-cardinal-hash.git",
-            branch: "main"
-        ),
-        .package(
-            url: "https://github.com/swift-molecules/swift-cardinal-tagged.git",
-            branch: "main"
-        ),
-        .package(
-            url: "https://github.com/swift-molecules/swift-ordinal-cardinal.git",
-            branch: "main"
-        ),
-        .package(
-            url: "https://github.com/swift-molecules/swift-ordinal-comparison.git",
-            branch: "main"
-        ),
-        .package(
-            url: "https://github.com/swift-molecules/swift-ordinal-tagged.git",
             branch: "main"
         ),
         .package(
@@ -149,14 +113,14 @@ let package = Package(
                 .product(name: "Cardinal", package: "swift-cardinal"),
                 .product(name: "Ordinal", package: "swift-ordinal"),
                 .product(name: "Tagged", package: "swift-tagged"),
-                .product(name: "Affine Tagged", package: "swift-affine-tagged"),
-                .product(name: "Cardinal Carrier", package: "swift-cardinal-carrier"),
-                .product(name: "Cardinal Comparison", package: "swift-cardinal-comparison"),
+                .product(name: "Affine Tagged", package: "swift-affine"),
+                .product(name: "Cardinal Carrier", package: "swift-cardinal"),
+                .product(name: "Cardinal Comparison", package: "swift-cardinal"),
                 .product(name: "Cardinal Property", package: "swift-cardinal-property"),
-                .product(name: "Cardinal Tagged", package: "swift-cardinal-tagged"),
-                .product(name: "Ordinal Cardinal", package: "swift-ordinal-cardinal"),
-                .product(name: "Ordinal Comparison", package: "swift-ordinal-comparison"),
-                .product(name: "Ordinal Tagged", package: "swift-ordinal-tagged"),
+                .product(name: "Cardinal Tagged", package: "swift-cardinal"),
+                .product(name: "Ordinal Cardinal", package: "swift-ordinal"),
+                .product(name: "Ordinal Comparison", package: "swift-ordinal"),
+                .product(name: "Ordinal Tagged", package: "swift-ordinal"),
                 .product(name: "Property Ownership", package: "swift-property-ownership"),
                 .product(name: "Tagged Carrier", package: "swift-tagged-carrier"),
             ]
@@ -173,13 +137,13 @@ let package = Package(
                 .product(name: "Cardinal", package: "swift-cardinal"),
                 .product(name: "Ordinal", package: "swift-ordinal"),
                 .product(name: "Tagged", package: "swift-tagged"),
-                .product(name: "Affine Tagged", package: "swift-affine-tagged"),
-                .product(name: "Cardinal Carrier", package: "swift-cardinal-carrier"),
-                .product(name: "Cardinal Comparison", package: "swift-cardinal-comparison"),
-                .product(name: "Cardinal Tagged", package: "swift-cardinal-tagged"),
-                .product(name: "Ordinal Cardinal", package: "swift-ordinal-cardinal"),
-                .product(name: "Ordinal Comparison", package: "swift-ordinal-comparison"),
-                .product(name: "Ordinal Tagged", package: "swift-ordinal-tagged"),
+                .product(name: "Affine Tagged", package: "swift-affine"),
+                .product(name: "Cardinal Carrier", package: "swift-cardinal"),
+                .product(name: "Cardinal Comparison", package: "swift-cardinal"),
+                .product(name: "Cardinal Tagged", package: "swift-cardinal"),
+                .product(name: "Ordinal Cardinal", package: "swift-ordinal"),
+                .product(name: "Ordinal Comparison", package: "swift-ordinal"),
+                .product(name: "Ordinal Tagged", package: "swift-ordinal"),
                 .product(name: "Tagged Carrier", package: "swift-tagged-carrier"),
             ]
         ),
@@ -194,15 +158,15 @@ let package = Package(
                 .product(name: "Cardinal", package: "swift-cardinal"),
                 .product(name: "Ordinal", package: "swift-ordinal"),
                 .product(name: "Tagged", package: "swift-tagged"),
-                .product(name: "Affine Tagged", package: "swift-affine-tagged"),
-                .product(name: "Cardinal Carrier", package: "swift-cardinal-carrier"),
-                .product(name: "Cardinal Comparison", package: "swift-cardinal-comparison"),
-                .product(name: "Cardinal Hash", package: "swift-cardinal-hash"),
+                .product(name: "Affine Tagged", package: "swift-affine"),
+                .product(name: "Cardinal Carrier", package: "swift-cardinal"),
+                .product(name: "Cardinal Comparison", package: "swift-cardinal"),
+                .product(name: "Cardinal Hash", package: "swift-cardinal"),
                 .product(name: "Cardinal Property", package: "swift-cardinal-property"),
-                .product(name: "Cardinal Tagged", package: "swift-cardinal-tagged"),
-                .product(name: "Ordinal Cardinal", package: "swift-ordinal-cardinal"),
-                .product(name: "Ordinal Comparison", package: "swift-ordinal-comparison"),
-                .product(name: "Ordinal Tagged", package: "swift-ordinal-tagged"),
+                .product(name: "Cardinal Tagged", package: "swift-cardinal"),
+                .product(name: "Ordinal Cardinal", package: "swift-ordinal"),
+                .product(name: "Ordinal Comparison", package: "swift-ordinal"),
+                .product(name: "Ordinal Tagged", package: "swift-ordinal"),
                 .product(name: "Property Ownership", package: "swift-property-ownership"),
                 .product(name: "Tagged Carrier", package: "swift-tagged-carrier"),
             ]
@@ -219,15 +183,15 @@ let package = Package(
                 .product(name: "Cardinal", package: "swift-cardinal"),
                 .product(name: "Ordinal", package: "swift-ordinal"),
                 .product(name: "Tagged", package: "swift-tagged"),
-                .product(name: "Affine Tagged", package: "swift-affine-tagged"),
-                .product(name: "Cardinal Carrier", package: "swift-cardinal-carrier"),
-                .product(name: "Cardinal Comparison", package: "swift-cardinal-comparison"),
-                .product(name: "Cardinal Hash", package: "swift-cardinal-hash"),
+                .product(name: "Affine Tagged", package: "swift-affine"),
+                .product(name: "Cardinal Carrier", package: "swift-cardinal"),
+                .product(name: "Cardinal Comparison", package: "swift-cardinal"),
+                .product(name: "Cardinal Hash", package: "swift-cardinal"),
                 .product(name: "Cardinal Property", package: "swift-cardinal-property"),
-                .product(name: "Cardinal Tagged", package: "swift-cardinal-tagged"),
-                .product(name: "Ordinal Cardinal", package: "swift-ordinal-cardinal"),
-                .product(name: "Ordinal Comparison", package: "swift-ordinal-comparison"),
-                .product(name: "Ordinal Tagged", package: "swift-ordinal-tagged"),
+                .product(name: "Cardinal Tagged", package: "swift-cardinal"),
+                .product(name: "Ordinal Cardinal", package: "swift-ordinal"),
+                .product(name: "Ordinal Comparison", package: "swift-ordinal"),
+                .product(name: "Ordinal Tagged", package: "swift-ordinal"),
                 .product(name: "Property Ownership", package: "swift-property-ownership"),
                 .product(name: "Tagged Carrier", package: "swift-tagged-carrier"),
             ]
@@ -245,16 +209,16 @@ let package = Package(
                 .product(name: "Cardinal", package: "swift-cardinal"),
                 .product(name: "Ordinal", package: "swift-ordinal"),
                 .product(name: "Tagged", package: "swift-tagged"),
-                .product(name: "Affine Tagged", package: "swift-affine-tagged"),
-                .product(name: "Affine Carrier", package: "swift-affine-carrier"),
-                .product(name: "Cardinal Carrier", package: "swift-cardinal-carrier"),
-                .product(name: "Cardinal Comparison", package: "swift-cardinal-comparison"),
-                .product(name: "Cardinal Hash", package: "swift-cardinal-hash"),
+                .product(name: "Affine Tagged", package: "swift-affine"),
+                .product(name: "Affine Carrier", package: "swift-affine"),
+                .product(name: "Cardinal Carrier", package: "swift-cardinal"),
+                .product(name: "Cardinal Comparison", package: "swift-cardinal"),
+                .product(name: "Cardinal Hash", package: "swift-cardinal"),
                 .product(name: "Cardinal Property", package: "swift-cardinal-property"),
-                .product(name: "Cardinal Tagged", package: "swift-cardinal-tagged"),
-                .product(name: "Ordinal Cardinal", package: "swift-ordinal-cardinal"),
-                .product(name: "Ordinal Comparison", package: "swift-ordinal-comparison"),
-                .product(name: "Ordinal Tagged", package: "swift-ordinal-tagged"),
+                .product(name: "Cardinal Tagged", package: "swift-cardinal"),
+                .product(name: "Ordinal Cardinal", package: "swift-ordinal"),
+                .product(name: "Ordinal Comparison", package: "swift-ordinal"),
+                .product(name: "Ordinal Tagged", package: "swift-ordinal"),
                 .product(name: "Property Ownership", package: "swift-property-ownership"),
                 .product(name: "Tagged Carrier", package: "swift-tagged-carrier"),
             ]
