@@ -1,8 +1,11 @@
 import Tagged_Carrier
+public import Index
+public import Ordinal_Protocol
+public import Ordinal_Standard_Library_Integration
 extension Bit.Vector.Static {
 
     @inlinable
-    public mutating func toggle(_ index: Bit.Index) {
+    public mutating func toggle(_ index: Index<Bit>) {
         precondition(index < Self.capacity, "Index out of bounds")
         let location = Bit.Pack<UInt>.Location(index: index, bitsPerWord: .bitsPerWord)
         _storage[location.word] ^= location.mask

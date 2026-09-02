@@ -1,9 +1,11 @@
 import Tagged_Carrier
-import Cardinal_Tagged
+public import Cardinal_Tagged
 import Ownership
 import Property
 import Property_Ownership
-
+public import Index
+public import Ordinal_Protocol
+public import Ownership_Inout
 extension Bit.Vector.Inline {
 
     public enum Capacity: Sendable {}
@@ -28,10 +30,10 @@ extension Property.Inout.Typed.Valued
 where Tag == Bit.Vector.Inline<n>.Capacity, Base == Bit.Vector.Inline<n>, Element == Bit {
 
     @inlinable
-    public var maximum: Bit.Index.Count { Bit.Vector.Inline<n>._capacity }
+    public var maximum: Index<Bit>.Count { Bit.Vector.Inline<n>._capacity }
 
     @inlinable
-    public var remaining: Bit.Index.Count {
+    public var remaining: Index<Bit>.Count {
         let count = base.value._count
         return Bit.Vector.Inline<n>._capacity.subtract.saturating(count)
     }

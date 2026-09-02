@@ -1,11 +1,15 @@
 import Tagged_Carrier
 import Cardinal
-import Ordinal_Comparison
+public import Ordinal_Comparison
 import Ownership
 import Property
 import Property_Ownership
 import Tagged
-
+public import Index
+public import Affine_Discrete
+public import Cardinal_Standard_Library_Integration
+public import Ordinal_Protocol
+public import Ownership_Inout
 extension Bit.Vector.`Protocol` where Self: ~Copyable {
 
     @inlinable
@@ -17,7 +21,7 @@ extension Bit.Vector.`Protocol` where Self: ~Copyable {
 extension Bit.Vector.`Protocol` where Self: ~Copyable {
 
     @inlinable
-    public var popcount: Bit.Index.Count {
+    public var popcount: Index<Bit>.Count {
         var total: UInt = 0
         for i in 0..<wordCount {
             total += UInt(word(at: i).nonzeroBitCount)
@@ -67,7 +71,7 @@ extension Bit.Vector.`Protocol` where Self: ~Copyable {
 extension Bit.Vector.`Protocol` where Self: ~Copyable {
 
     @inlinable
-    public mutating func popFirst() -> Bit.Index? {
+    public mutating func popFirst() -> Index<Bit>? {
         for i in 0..<wordCount {
             let w = word(at: i)
             if w != 0 {
@@ -130,7 +134,7 @@ extension Bit.Vector.`Protocol` where Self: ~Copyable {
 extension Property.Inout where Tag == Bit.Vector.Pop, Base: Bit.Vector.`Protocol` & ~Copyable {
 
     @inlinable
-    public mutating func first() -> Bit.Index? {
+    public mutating func first() -> Index<Bit>? {
         base.value.popFirst()
     }
 }

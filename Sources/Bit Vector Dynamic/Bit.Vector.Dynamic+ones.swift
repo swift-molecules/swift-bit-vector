@@ -2,6 +2,10 @@ import Tagged_Carrier
 import Ownership
 import Property
 import Property_Ownership
+public import Index
+public import Cardinal_Standard_Library_Integration
+public import Ordinal_Protocol
+public import Ownership_Inout
 
 extension Bit.Vector.Dynamic {
 
@@ -16,7 +20,7 @@ extension Bit.Vector.Dynamic {
 extension Property.Inout where Tag == Bit.Vector.Ones, Base == Bit.Vector.Dynamic {
 
     @inlinable
-    public func forEach(_ body: (Bit.Index) -> Void) {
+    public func forEach(_ body: (Index<Bit>) -> Void) {
         let storage = base.value._storage
         let count = base.value._count
         let countInt = Int(clamping: count)
@@ -27,7 +31,7 @@ extension Property.Inout where Tag == Bit.Vector.Ones, Base == Bit.Vector.Dynami
                 let bitIndex = word.trailingZeroBitCount
                 let globalIndex = wordIndex * bitsPerWord + bitIndex
                 if globalIndex < countInt {
-                    body(Bit.Index(_unchecked: Ordinal(UInt(globalIndex))))
+                    body(Index<Bit>(_unchecked: Ordinal(UInt(globalIndex))))
                 }
                 word &= word &- 1
             }

@@ -1,8 +1,10 @@
 import Tagged_Carrier
 public import Bit
+public import Index
 import Cardinal
 import Tagged
-
+public import Ordinal_Protocol
+public import Ordinal_Standard_Library_Integration
 extension Bit.Vector {
 
     public struct Static<let wordCount: Int>: Sendable {
@@ -10,7 +12,7 @@ extension Bit.Vector {
         package var _storage: InlineArray<wordCount, UInt>
 
         @inlinable
-        public static var capacity: Bit.Index.Count {
+        public static var capacity: Index<Bit>.Count {
             Tagged<Bit, Cardinal>(
                 _unchecked: Cardinal(UInt(wordCount * UInt.bitWidth))
             )
@@ -26,7 +28,7 @@ extension Bit.Vector {
 extension Bit.Vector.Static {
 
     @inlinable
-    public subscript(index: Bit.Index) -> Bool {
+    public subscript(index: Index<Bit>) -> Bool {
         get {
             let location = Bit.Pack<UInt>.Location(index: index, bitsPerWord: .bitsPerWord)
             return (_storage[location.word] & location.mask) != 0

@@ -2,7 +2,10 @@ import Tagged_Carrier
 import Affine
 public import Iterator
 import Sequence
-
+public import Index
+public import Iterable
+public import Affine_Discrete
+public import Ordinal_Protocol
 extension Bit.Vector.Zeros {
 
     @safe
@@ -20,7 +23,7 @@ extension Bit.Vector.Zeros {
 extension Bit.Vector.Zeros.Static {
 
     @inlinable
-    public func first(max: Bit.Index.Count) -> Bit.Index? {
+    public func first(max: Index<Bit>.Count) -> Index<Bit>? {
         for i in 0..<wordCount {
             let inverted = ~_storage[i]
             if inverted != 0 {
@@ -39,7 +42,7 @@ extension Bit.Vector.Zeros.Static {
 
 extension Bit.Vector.Zeros.Static: Iterable {
 
-    public typealias Element = Bit.Index
+    public typealias Element = Index<Bit>
 
     @_implements(Iterable,Iterator)
     public typealias IterableIterator = BitVectorMaterializingIterator<ElementIterator>

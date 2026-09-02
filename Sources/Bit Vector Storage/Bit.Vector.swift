@@ -1,10 +1,13 @@
-import Cardinal_Carrier
+public import Cardinal_Carrier
 import Tagged_Carrier
 import Cardinal
 import Ordinal
 import Tagged
 public import Bit
-
+public import Index
+public import Ordinal_Protocol
+public import Cardinal_Standard_Library_Integration
+public import Ordinal_Standard_Library_Integration
 extension Bit {
 
     @safe
@@ -15,18 +18,19 @@ extension Bit {
         @usableFromInline
         package let _wordCount: Tagged<UInt, Cardinal>
 
-        public let capacity: Bit.Index.Count
+        public let capacity: Index<Bit>.Count
 
         @inlinable
-        public init(capacity: Bit.Index.Count) {
+        public init(capacity: Index<Bit>.Count) {
             let pack = Bit.Pack<UInt>(count: capacity, bitsPerWord: .bitsPerWord)
 
             self._wordCount = pack.words.count
             self.capacity = capacity
 
             if _wordCount > .zero {
-                unsafe self._words = .allocate(capacity: _wordCount)
-                unsafe _words.initialize(repeating: 0, count: _wordCount)
+                let wordCount = Int(bitPattern: _wordCount.underlying.rawValue)
+                unsafe self._words = .allocate(capacity: wordCount)
+                unsafe _words.initialize(repeating: 0, count: wordCount)
             } else {
 
                 unsafe self._words = .init(bitPattern: 0x1)!
@@ -44,7 +48,7 @@ extension Bit {
 extension Bit.Vector {
 
     @inlinable
-    public subscript(index: Bit.Index) -> Bool {
+    public subscript(index: Index<Bit>) -> Bool {
         get {
             precondition(index < capacity, "Index out of bounds")
             let location = Bit.Pack<UInt>.Location(index: index, bitsPerWord: .bitsPerWord)

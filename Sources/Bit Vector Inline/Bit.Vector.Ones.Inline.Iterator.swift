@@ -2,7 +2,8 @@ import Tagged_Carrier
 import Cardinal
 import Ordinal
 import Tagged
-
+public import Index
+public import Ordinal_Protocol
 extension Bit.Vector.Ones.Inline {
 
     @safe
@@ -11,7 +12,7 @@ extension Bit.Vector.Ones.Inline {
         let _storage: InlineArray<wordCount, UInt>
 
         @usableFromInline
-        let _capacity: Bit.Index.Count
+        let _capacity: Index<Bit>.Count
 
         @usableFromInline
         var _wordIndex: Int
@@ -20,7 +21,7 @@ extension Bit.Vector.Ones.Inline {
         var _currentWord: UInt
 
         @inlinable
-        package init(storage: InlineArray<wordCount, UInt>, capacity: Bit.Index.Count) {
+        package init(storage: InlineArray<wordCount, UInt>, capacity: Index<Bit>.Count) {
             self._storage = storage
             self._capacity = capacity
             self._wordIndex = 0
@@ -36,7 +37,7 @@ extension Bit.Vector.Ones.Inline {
 extension Bit.Vector.Ones.Inline.ElementIterator {
 
     @inlinable
-    public mutating func next() -> Bit.Index? {
+    public mutating func next() -> Index<Bit>? {
 
         while _currentWord == 0 {
             _wordIndex += 1

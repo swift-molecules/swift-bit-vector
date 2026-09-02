@@ -1,7 +1,9 @@
 import Tagged_Carrier
-import Cardinal_Tagged
+public import Cardinal_Tagged
 public import Cardinal_Hash
 import Affine
+public import Index
+public import Ordinal_Protocol
 
 extension Bit.Vector {
 
@@ -10,7 +12,7 @@ extension Bit.Vector {
         var _storage: ContiguousArray<UInt>
 
         @usableFromInline
-        var _count: Bit.Index.Count
+        var _count: Index<Bit>.Count
 
         @inlinable
         public init() {
@@ -19,14 +21,14 @@ extension Bit.Vector {
         }
 
         @inlinable
-        public init(count: Bit.Index.Count) {
+        public init(count: Index<Bit>.Count) {
             let pack = Bit.Pack<UInt>(count: count, bitsPerWord: .bitsPerWord)
             self._storage = ContiguousArray(repeating: 0, count: pack.words.count)
             self._count = count
         }
 
         @inlinable
-        public init(repeating value: Bool, count: Bit.Index.Count) {
+        public init(repeating value: Bool, count: Index<Bit>.Count) {
             let pack = Bit.Pack<UInt>(count: count, bitsPerWord: .bitsPerWord)
             self._storage = ContiguousArray(repeating: value ? ~0 : 0, count: pack.words.count)
             self._count = count
@@ -38,7 +40,7 @@ extension Bit.Vector {
         }
 
         @inlinable
-        public init(repeating bit: Bit, count: Bit.Index.Count) {
+        public init(repeating bit: Bit, count: Index<Bit>.Count) {
             self.init(repeating: bit == .one, count: count)
         }
 
@@ -69,7 +71,7 @@ extension Bit.Vector.Dynamic {
 extension Bit.Vector.Dynamic {
 
     @inlinable
-    public var count: Bit.Index.Count { _count }
+    public var count: Index<Bit>.Count { _count }
 
     @inlinable
     public var isEmpty: Bool { _count == .zero }
@@ -95,7 +97,7 @@ extension Bit.Vector.Dynamic {
 extension Bit.Vector.Dynamic {
 
     @inlinable
-    public subscript(index: Bit.Index) -> Bool {
+    public subscript(index: Index<Bit>) -> Bool {
         get {
             precondition(index < _count, "Index out of bounds")
             let loc = index.location(bitsPerWord: .bitsPerWord)
@@ -113,7 +115,7 @@ extension Bit.Vector.Dynamic {
     }
 
     @inlinable
-    public func get(_ index: Bit.Index) throws(Self.Error) -> Bool {
+    public func get(_ index: Index<Bit>) throws(Self.Error) -> Bool {
         guard index < _count else {
             throw .bounds(index: index, count: _count)
         }

@@ -1,7 +1,8 @@
 import Tagged_Carrier
-import Cardinal_Tagged
+public import Cardinal_Tagged
 import Property
-
+public import Index
+public import Ordinal_Protocol
 extension Bit.Vector.Dynamic {
 
     public enum Statistic: Sendable {}
@@ -18,8 +19,8 @@ extension Bit.Vector.Dynamic {
 extension Property where Tag == Bit.Vector.Dynamic.Statistic, Base == Bit.Vector.Dynamic {
 
     @inlinable
-    public var `true`: Bit.Index.Count { base.popcount }
+    public var `true`: Index<Bit>.Count { base.popcount }
 
     @inlinable
-    public var `false`: Bit.Index.Count { base._count.subtract.saturating(base.popcount) }
+    public var `false`: Index<Bit>.Count { base._count.subtract.saturating(base.popcount) }
 }

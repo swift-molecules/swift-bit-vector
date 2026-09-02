@@ -1,11 +1,13 @@
-import Cardinal_Carrier
-import Ordinal_Cardinal
-import Ordinal_Comparison
+public import Cardinal_Carrier
+public import Ordinal_Cardinal
+public import Ordinal_Comparison
 import Tagged_Carrier
 import Cardinal
 import Ordinal
 import Tagged
-
+public import Index
+public import Ordinal_Protocol
+public import Ordinal_Standard_Library_Integration
 extension Bit.Vector.Ones.View {
 
     @safe
@@ -17,7 +19,7 @@ extension Bit.Vector.Ones.View {
         let _wordCount: Tagged<UInt, Cardinal>
 
         @usableFromInline
-        let _capacity: Bit.Index.Count
+        let _capacity: Index<Bit>.Count
 
         @usableFromInline
         var _wordIndex: Tagged<UInt, Ordinal>
@@ -44,7 +46,7 @@ extension Bit.Vector.Ones.View {
 extension Bit.Vector.Ones.View.ElementIterator {
 
     @inlinable
-    public mutating func next() -> Bit.Index? {
+    public mutating func next() -> Index<Bit>? {
 
         while _currentWord == 0 {
             let (rawNext, overflow) =

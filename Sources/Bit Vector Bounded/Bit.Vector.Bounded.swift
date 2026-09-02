@@ -1,23 +1,27 @@
 import Tagged_Carrier
-import Cardinal_Tagged
+public import Cardinal_Tagged
 public import Cardinal_Hash
-import Ordinal_Tagged
+public import Ordinal_Tagged
 import Affine
-
+public import Index
+public import Cardinal_Standard_Library_Integration
+public import Ordinal_Predecessor
+public import Ordinal_Protocol
+public import Ordinal_Standard_Library_Integration
 extension Bit.Vector {
 
     public struct Bounded: Sendable {
         @usableFromInline
-        let _capacity: Bit.Index.Count
+        let _capacity: Index<Bit>.Count
 
         @usableFromInline
         package var _storage: ContiguousArray<UInt>
 
         @usableFromInline
-        package var _count: Bit.Index.Count
+        package var _count: Index<Bit>.Count
 
         @inlinable
-        public init(capacity: Bit.Index.Count) {
+        public init(capacity: Index<Bit>.Count) {
             let pack = Bit.Pack<UInt>(count: capacity, bitsPerWord: .bitsPerWord)
             self._capacity = capacity
             self._storage = ContiguousArray(repeating: 0, count: pack.words.count)
@@ -25,7 +29,7 @@ extension Bit.Vector {
         }
 
         @inlinable
-        public init(capacity: Bit.Index.Count, count: Bit.Index.Count) throws(Self.Error) {
+        public init(capacity: Index<Bit>.Count, count: Index<Bit>.Count) throws(Self.Error) {
             guard count <= capacity else {
                 throw .overflow
             }
@@ -36,7 +40,7 @@ extension Bit.Vector {
         }
 
         @inlinable
-        public init<S: Swift.Sequence>(capacity: Bit.Index.Count, _ elements: S) throws(Self.Error)
+        public init<S: Swift.Sequence>(capacity: Index<Bit>.Count, _ elements: S) throws(Self.Error)
         where S.Element == Bool {
             self.init(capacity: capacity)
             for element in elements {
@@ -46,9 +50,9 @@ extension Bit.Vector {
 
         @inlinable
         public init(
-            capacity: Bit.Index.Count,
+            capacity: Index<Bit>.Count,
             repeating value: Bool,
-            count: Bit.Index.Count
+            count: Index<Bit>.Count
         ) throws(Self.Error) {
             guard count <= capacity else {
                 throw .overflow
@@ -85,7 +89,7 @@ extension Bit.Vector.Bounded {
 extension Bit.Vector.Bounded {
 
     @inlinable
-    public var count: Bit.Index.Count { _count }
+    public var count: Index<Bit>.Count { _count }
 
     @inlinable
     public var isEmpty: Bool { _count == .zero }
@@ -111,7 +115,7 @@ extension Bit.Vector.Bounded {
 extension Bit.Vector.Bounded {
 
     @inlinable
-    public subscript(index: Bit.Index) -> Bool {
+    public subscript(index: Index<Bit>) -> Bool {
         get {
             precondition(index < _count, "Index out of bounds")
             let loc = index.location(bitsPerWord: .bitsPerWord)
@@ -129,7 +133,7 @@ extension Bit.Vector.Bounded {
     }
 
     @inlinable
-    public func get(_ index: Bit.Index) throws(Self.Error) -> Bool {
+    public func get(_ index: Index<Bit>) throws(Self.Error) -> Bool {
         guard index < _count else {
             throw .bounds(index: index, count: _count)
         }

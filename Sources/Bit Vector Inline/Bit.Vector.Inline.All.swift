@@ -2,7 +2,7 @@ import Property
 public import Cardinal_Hash
 import Ownership
 import Property_Ownership
-
+public import Ownership_Inout
 extension Bit.Vector.Inline {
 
     public enum All: Sendable {}

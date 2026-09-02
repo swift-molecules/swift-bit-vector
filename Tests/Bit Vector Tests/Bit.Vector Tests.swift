@@ -3,6 +3,7 @@ import Bit_Vector_Test_Support
 import Cardinal
 import Iterator
 import Testing
+import Index
 
 extension Bit.Vector {
     @Suite("Bit.Vector Tests")
@@ -17,7 +18,7 @@ extension Bit.Vector {
 
         @Test
         func `Create and access bits`() {
-            let capacity: Bit.Index.Count = 100
+            let capacity: Index<Bit>.Count = 100
             let bits = Bit.Vector(capacity: capacity)
             #expect(bits.capacity == capacity)
             #expect(bits.isEmpty == true)
@@ -31,20 +32,20 @@ extension Bit.Vector {
             #expect(bits[42] == true)
             #expect(bits[99] == true)
 
-            let expectedPopcount: Bit.Index.Count = 3
+            let expectedPopcount: Index<Bit>.Count = 3
             #expect(bits.popcount == expectedPopcount)
         }
 
         @Test
         func `Clear all bits`() {
-            let capacity: Bit.Index.Count = 128
+            let capacity: Index<Bit>.Count = 128
             var bits = Bit.Vector(capacity: capacity)
 
             bits[0] = true
             bits[64] = true
             bits[127] = true
 
-            let expectedPopcount: Bit.Index.Count = 3
+            let expectedPopcount: Index<Bit>.Count = 3
             #expect(bits.popcount == expectedPopcount)
 
             bits.clear.all()
@@ -54,7 +55,7 @@ extension Bit.Vector {
 
         @Test
         func `Set all bits`() {
-            let capacity: Bit.Index.Count = 100
+            let capacity: Index<Bit>.Count = 100
             var bits = Bit.Vector(capacity: capacity)
             bits.set.all()
             #expect(bits.popcount == capacity)
@@ -63,20 +64,20 @@ extension Bit.Vector {
 
         @Test
         func `Iterate set bits`() {
-            let capacity: Bit.Index.Count = 200
+            let capacity: Index<Bit>.Count = 200
             let bits = Bit.Vector(capacity: capacity)
 
             bits[5] = true
             bits[100] = true
             bits[150] = true
 
-            var visited: [Bit.Index] = []
+            var visited: [Index<Bit>] = []
             bits.ones.forEach { visited.append($0) }
 
             #expect(visited.count == 3)
-            let expected0: Bit.Index = 5
-            let expected1: Bit.Index = 100
-            let expected2: Bit.Index = 150
+            let expected0: Index<Bit> = 5
+            let expected1: Index<Bit> = 100
+            let expected2: Index<Bit> = 150
             #expect(visited[0] == expected0)
             #expect(visited[1] == expected1)
             #expect(visited[2] == expected2)
@@ -84,32 +85,32 @@ extension Bit.Vector {
 
         @Test
         func `Iterate clear bits`() {
-            let capacity: Bit.Index.Count = 10
+            let capacity: Index<Bit>.Count = 10
             let bits = Bit.Vector(capacity: capacity)
 
             bits[2] = true
             bits[7] = true
 
-            var visited: [Bit.Index] = []
+            var visited: [Index<Bit>] = []
             bits.zeros.forEach { visited.append($0) }
 
             #expect(visited.count == 8)
-            let expected0: Bit.Index = 0
-            let expected1: Bit.Index = 1
+            let expected0: Index<Bit> = 0
+            let expected1: Index<Bit> = 1
             #expect(visited[0] == expected0)
             #expect(visited[1] == expected1)
         }
 
         @Test
         func `iterableMakeIterator holds across the vector's lifetime`() {
-            let capacity: Bit.Index.Count = 16
+            let capacity: Index<Bit>.Count = 16
             let bits = Bit.Vector(capacity: capacity)
             bits[3] = true
             bits[9] = true
 
             let onesView = bits.ones
             var m = onesView.iterableMakeIterator()
-            var visited: [Bit.Index] = []
+            var visited: [Index<Bit>] = []
             while true {
                 let span = m.next(maximumCount: Cardinal(UInt.max))
                 if span.isEmpty { break }
@@ -119,8 +120,8 @@ extension Bit.Vector {
             }
 
             #expect(visited.count == 2)
-            let expected0: Bit.Index = 3
-            let expected1: Bit.Index = 9
+            let expected0: Index<Bit> = 3
+            let expected1: Index<Bit> = 9
             #expect(visited[0] == expected0)
             #expect(visited[1] == expected1)
         }
@@ -171,14 +172,14 @@ extension Bit.Vector.`Bounds Safety`.`Edge Case` {
     @Test
     func `Static capacity`() {
         var bits = Bit.Vector.Static<2>()
-        let expectedCapacity: Bit.Index.Count = 128
+        let expectedCapacity: Index<Bit>.Count = 128
         #expect(Bit.Vector.Static<2>.capacity == expectedCapacity)
         #expect(bits.isEmpty == true)
 
         bits[0] = true
         bits[127] = true
 
-        let expectedPopcount: Bit.Index.Count = 2
+        let expectedPopcount: Index<Bit>.Count = 2
         #expect(bits.popcount == expectedPopcount)
     }
 
@@ -201,8 +202,8 @@ extension Bit.Vector.`Bounds Safety`.`Edge Case` {
     @Test
     func `set.range single word`() {
         var bits = Bit.Vector.Static<4>()
-        let lower: Bit.Index = 3
-        let upper: Bit.Index = 7
+        let lower: Index<Bit> = 3
+        let upper: Index<Bit> = 7
         bits.set.range(lower..<upper)
 
         #expect(bits[2] == false)
@@ -212,15 +213,15 @@ extension Bit.Vector.`Bounds Safety`.`Edge Case` {
         #expect(bits[6] == true)
         #expect(bits[7] == false)
 
-        let expectedPopcount: Bit.Index.Count = 4
+        let expectedPopcount: Index<Bit>.Count = 4
         #expect(bits.popcount == expectedPopcount)
     }
 
     @Test
     func `set.range multi word`() {
         var bits = Bit.Vector.Static<4>()
-        let lower: Bit.Index = 60
-        let upper: Bit.Index = 130
+        let lower: Index<Bit> = 60
+        let upper: Index<Bit> = 130
         bits.set.range(lower..<upper)
 
         #expect(bits[59] == false)
@@ -230,14 +231,14 @@ extension Bit.Vector.`Bounds Safety`.`Edge Case` {
         #expect(bits[129] == true)
         #expect(bits[130] == false)
 
-        let expectedPopcount: Bit.Index.Count = 70
+        let expectedPopcount: Index<Bit>.Count = 70
         #expect(bits.popcount == expectedPopcount)
     }
 
     @Test
     func `set.range empty range`() {
         var bits = Bit.Vector.Static<4>()
-        let lower: Bit.Index = 5
+        let lower: Index<Bit> = 5
         bits.set.range(lower..<lower)
         #expect(bits.isEmpty == true)
     }
@@ -245,11 +246,11 @@ extension Bit.Vector.`Bounds Safety`.`Edge Case` {
     @Test
     func `set.range full word boundary`() {
         var bits = Bit.Vector.Static<4>()
-        let lower: Bit.Index = 0
-        let upper: Bit.Index = 64
+        let lower: Index<Bit> = 0
+        let upper: Index<Bit> = 64
         bits.set.range(lower..<upper)
 
-        let expectedPopcount: Bit.Index.Count = 64
+        let expectedPopcount: Index<Bit>.Count = 64
         #expect(bits.popcount == expectedPopcount)
         #expect(bits[0] == true)
         #expect(bits[63] == true)
@@ -261,8 +262,8 @@ extension Bit.Vector.`Bounds Safety`.`Edge Case` {
         var bits = Bit.Vector.Static<4>()
         bits.set.all()
 
-        let lower: Bit.Index = 10
-        let upper: Bit.Index = 20
+        let lower: Index<Bit> = 10
+        let upper: Index<Bit> = 20
         bits.clear.range(lower..<upper)
 
         #expect(bits[9] == true)
@@ -270,7 +271,7 @@ extension Bit.Vector.`Bounds Safety`.`Edge Case` {
         #expect(bits[19] == false)
         #expect(bits[20] == true)
 
-        let expectedPopcount: Bit.Index.Count = 246
+        let expectedPopcount: Index<Bit>.Count = 246
         #expect(bits.popcount == expectedPopcount)
     }
 
@@ -279,8 +280,8 @@ extension Bit.Vector.`Bounds Safety`.`Edge Case` {
         var bits = Bit.Vector.Static<4>()
         bits.set.all()
 
-        let lower: Bit.Index = 60
-        let upper: Bit.Index = 130
+        let lower: Index<Bit> = 60
+        let upper: Index<Bit> = 130
         bits.clear.range(lower..<upper)
 
         #expect(bits[59] == true)
@@ -289,18 +290,18 @@ extension Bit.Vector.`Bounds Safety`.`Edge Case` {
         #expect(bits[129] == false)
         #expect(bits[130] == true)
 
-        let expectedPopcount: Bit.Index.Count = 186
+        let expectedPopcount: Index<Bit>.Count = 186
         #expect(bits.popcount == expectedPopcount)
     }
 
     @Test
     func `set.range then clear.range roundtrip`() {
         var bits = Bit.Vector.Static<4>()
-        let lower: Bit.Index = 0
-        let upper: Bit.Index = 100
+        let lower: Index<Bit> = 0
+        let upper: Index<Bit> = 100
         bits.set.range(lower..<upper)
 
-        let expectedPopcount: Bit.Index.Count = 100
+        let expectedPopcount: Index<Bit>.Count = 100
         #expect(bits.popcount == expectedPopcount)
 
         bits.clear.range(lower..<upper)
@@ -310,15 +311,15 @@ extension Bit.Vector.`Bounds Safety`.`Edge Case` {
     @Test
     func `set.range single bit`() {
         var bits = Bit.Vector.Static<4>()
-        let lower: Bit.Index = 42
-        let upper: Bit.Index = 43
+        let lower: Index<Bit> = 42
+        let upper: Index<Bit> = 43
         bits.set.range(lower..<upper)
 
         #expect(bits[41] == false)
         #expect(bits[42] == true)
         #expect(bits[43] == false)
 
-        let expectedPopcount: Bit.Index.Count = 1
+        let expectedPopcount: Index<Bit>.Count = 1
         #expect(bits.popcount == expectedPopcount)
     }
 
@@ -328,14 +329,14 @@ extension Bit.Vector.`Bounds Safety`.`Edge Case` {
         bits[0] = true
         bits[200] = true
 
-        let lower: Bit.Index = 10
-        let upper: Bit.Index = 20
+        let lower: Index<Bit> = 10
+        let upper: Index<Bit> = 20
         bits.set.range(lower..<upper)
 
         #expect(bits[0] == true)
         #expect(bits[200] == true)
 
-        let expectedPopcount: Bit.Index.Count = 12
+        let expectedPopcount: Index<Bit>.Count = 12
         #expect(bits.popcount == expectedPopcount)
     }
 }

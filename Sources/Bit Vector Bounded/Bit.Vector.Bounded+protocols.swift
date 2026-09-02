@@ -3,6 +3,9 @@ public import Cardinal_Hash
 import Cardinal
 import Ordinal
 import Tagged
+public import Ordinal_Protocol
+public import Ordinal_Standard_Library_Integration
+public import Cardinal_Standard_Library_Integration
 extension Bit.Vector.Bounded: Equatable {
 
     @inlinable

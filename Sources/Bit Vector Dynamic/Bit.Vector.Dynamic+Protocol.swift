@@ -1,8 +1,10 @@
-import Tagged_Carrier
+public import Tagged_Carrier
+public import Index
+public import Ordinal_Protocol
 extension Bit.Vector.Dynamic: Bit.Vector.`Protocol` {
 
     @inlinable
-    public var bitCapacity: Bit.Index.Count { _count }
+    public var bitCapacity: Index<Bit>.Count { _count }
 
     @inlinable
     public borrowing func word(at index: Int) -> UInt {

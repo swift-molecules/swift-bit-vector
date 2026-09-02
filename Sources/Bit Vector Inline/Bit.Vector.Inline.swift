@@ -1,17 +1,21 @@
 import Tagged_Carrier
-import Cardinal_Tagged
+public import Cardinal_Tagged
 public import Cardinal_Hash
-import Ordinal_Tagged
+public import Ordinal_Tagged
 import Affine
 import Cardinal
 import Tagged
-
+public import Index
+public import Cardinal_Standard_Library_Integration
+public import Ordinal_Predecessor
+public import Ordinal_Protocol
+public import Ordinal_Standard_Library_Integration
 extension Bit.Vector {
 
     public struct Inline<let wordCount: Int>: Sendable {
 
         @inlinable
-        public static var _capacity: Bit.Index.Count {
+        public static var _capacity: Index<Bit>.Count {
             Tagged<Bit, Cardinal>(
                 _unchecked: Cardinal(UInt(wordCount * UInt.bitWidth))
             )
@@ -21,7 +25,7 @@ extension Bit.Vector {
         package var _storage: InlineArray<wordCount, UInt>
 
         @usableFromInline
-        package var _count: Bit.Index.Count
+        package var _count: Index<Bit>.Count
 
         @inlinable
         public init() {
@@ -30,7 +34,7 @@ extension Bit.Vector {
         }
 
         @inlinable
-        public init(count: Bit.Index.Count) throws(Self.Error) {
+        public init(count: Index<Bit>.Count) throws(Self.Error) {
             guard count <= Self._capacity else {
                 throw .overflow
             }
@@ -39,7 +43,7 @@ extension Bit.Vector {
         }
 
         @inlinable
-        public init(repeating value: Bool, count: Bit.Index.Count) throws(Self.Error) {
+        public init(repeating value: Bool, count: Index<Bit>.Count) throws(Self.Error) {
             guard count <= Self._capacity else {
                 throw .overflow
             }
@@ -69,7 +73,7 @@ extension Bit.Vector {
 extension Bit.Vector.Inline {
 
     @inlinable
-    public var count: Bit.Index.Count { _count }
+    public var count: Index<Bit>.Count { _count }
 
     @inlinable
     public var isEmpty: Bool { _count == .zero }
@@ -95,7 +99,7 @@ extension Bit.Vector.Inline {
 extension Bit.Vector.Inline {
 
     @inlinable
-    public subscript(index: Bit.Index) -> Bool {
+    public subscript(index: Index<Bit>) -> Bool {
         get {
             precondition(index < _count, "Index out of bounds")
             let loc = index.location(bitsPerWord: .bitsPerWord)
@@ -113,7 +117,7 @@ extension Bit.Vector.Inline {
     }
 
     @inlinable
-    public func get(_ index: Bit.Index) throws(Self.Error) -> Bool {
+    public func get(_ index: Index<Bit>) throws(Self.Error) -> Bool {
         guard index < _count else {
             throw .bounds(index: index, count: _count)
         }

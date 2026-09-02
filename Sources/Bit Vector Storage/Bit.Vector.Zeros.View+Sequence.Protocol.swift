@@ -1,10 +1,13 @@
 import Tagged_Carrier
 public import Iterator
 import Sequence
+public import Index
+public import Iterable
+public import Ordinal_Protocol
 
 extension Bit.Vector.Zeros.View: Iterable {
 
-    public typealias Element = Bit.Index
+    public typealias Element = Index<Bit>
 
     @_implements(Iterable,Iterator)
     public typealias IterableIterator = BitVectorMaterializingIterator<ElementIterator>
@@ -29,7 +32,7 @@ extension Bit.Vector.Zeros.View {
 
     @inline(always)
     @inlinable
-    public func forEach(_ body: (Bit.Index) -> Void) {
+    public func forEach(_ body: (Index<Bit>) -> Void) {
         var iterator: ElementIterator = makeIterator()
         while let element = iterator.next() {
             body(element)

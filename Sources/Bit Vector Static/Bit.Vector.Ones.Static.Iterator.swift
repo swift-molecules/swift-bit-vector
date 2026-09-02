@@ -2,6 +2,8 @@ import Tagged_Carrier
 import Cardinal
 import Ordinal
 import Tagged
+public import Index
+public import Ordinal_Protocol
 extension Bit.Vector.Ones.Static {
 
     @safe
@@ -31,7 +33,7 @@ extension Bit.Vector.Ones.Static {
 extension Bit.Vector.Ones.Static.ElementIterator {
 
     @inlinable
-    public mutating func next() -> Bit.Index? {
+    public mutating func next() -> Index<Bit>? {
 
         while _currentWord == 0 {
             _wordIndex += 1

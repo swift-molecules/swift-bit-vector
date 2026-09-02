@@ -1,10 +1,12 @@
 import Tagged_Carrier
 import Affine
+public import Index
+public import Ordinal_Protocol
 
 extension Bit.Vector.Dynamic {
 
     @inlinable
-    public mutating func set(_ index: Bit.Index) throws(Self.Error) {
+    public mutating func set(_ index: Index<Bit>) throws(Self.Error) {
         guard index < _count else {
             throw .bounds(index: index, count: _count)
         }
@@ -13,7 +15,7 @@ extension Bit.Vector.Dynamic {
     }
 
     @inlinable
-    public mutating func clear(_ index: Bit.Index) throws(Self.Error) {
+    public mutating func clear(_ index: Index<Bit>) throws(Self.Error) {
         guard index < _count else {
             throw .bounds(index: index, count: _count)
         }
@@ -22,7 +24,7 @@ extension Bit.Vector.Dynamic {
     }
 
     @inlinable
-    public mutating func toggle(_ index: Bit.Index) throws(Self.Error) {
+    public mutating func toggle(_ index: Index<Bit>) throws(Self.Error) {
         guard index < _count else {
             throw .bounds(index: index, count: _count)
         }

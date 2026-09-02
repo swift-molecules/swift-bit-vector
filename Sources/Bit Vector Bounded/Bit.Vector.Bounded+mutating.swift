@@ -1,14 +1,18 @@
 import Tagged_Carrier
-import Ordinal_Tagged
+public import Ordinal_Tagged
 import Cardinal
 import Ordinal
 import Tagged
 import Affine
-
+public import Index
+public import Ordinal_Predecessor
+public import Ordinal_Protocol
+public import Ordinal_Standard_Library_Integration
+public import Cardinal_Standard_Library_Integration
 extension Bit.Vector.Bounded {
 
     @inlinable
-    public mutating func set(_ index: Bit.Index) throws(Self.Error) {
+    public mutating func set(_ index: Index<Bit>) throws(Self.Error) {
         guard index < _count else {
             throw .bounds(index: index, count: _count)
         }
@@ -17,7 +21,7 @@ extension Bit.Vector.Bounded {
     }
 
     @inlinable
-    public mutating func clear(_ index: Bit.Index) throws(Self.Error) {
+    public mutating func clear(_ index: Index<Bit>) throws(Self.Error) {
         guard index < _count else {
             throw .bounds(index: index, count: _count)
         }
@@ -26,7 +30,7 @@ extension Bit.Vector.Bounded {
     }
 
     @inlinable
-    public mutating func toggle(_ index: Bit.Index) throws(Self.Error) {
+    public mutating func toggle(_ index: Index<Bit>) throws(Self.Error) {
         guard index < _count else {
             throw .bounds(index: index, count: _count)
         }

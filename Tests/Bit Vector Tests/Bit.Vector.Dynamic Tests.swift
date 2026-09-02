@@ -1,6 +1,7 @@
 import Bit_Vector
 import Bit_Vector_Test_Support
 import Testing
+import Index
 
 enum BitVectorDynamicTests {
     @Suite struct Unit {}
@@ -112,7 +113,7 @@ extension BitVectorDynamicTests.Unit {
 
         #expect(bits.count == 5)
         for n in 0..<5 {
-            let i: Bit.Index = Bit.Index(integerLiteral: UInt(n))
+            let i: Index<Bit> = Index<Bit>(integerLiteral: UInt(n))
             #expect(bits[i] == true)
         }
     }
@@ -123,7 +124,7 @@ extension BitVectorDynamicTests.Unit {
 
         #expect(bits.count == 5)
         for n in 0..<5 {
-            let i: Bit.Index = Bit.Index(integerLiteral: UInt(n))
+            let i: Index<Bit> = Index<Bit>(integerLiteral: UInt(n))
             #expect(bits[i] == false)
         }
     }

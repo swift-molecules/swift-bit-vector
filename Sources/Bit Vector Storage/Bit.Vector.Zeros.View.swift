@@ -1,3 +1,5 @@
+public import Index
+public import Ordinal_Protocol
 import Tagged_Carrier
 import Cardinal
 import Ordinal
@@ -15,7 +17,7 @@ extension Bit.Vector.Zeros {
         let _wordCount: Tagged<UInt, Cardinal>
 
         @usableFromInline
-        let _capacity: Bit.Index.Count
+        let _capacity: Index<Bit>.Count
 
         @inlinable
         @_lifetime(borrow vector)

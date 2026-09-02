@@ -2,6 +2,9 @@ import Tagged_Carrier
 import Ownership
 import Property
 import Property_Ownership
+public import Index
+public import Ordinal_Protocol
+public import Ownership_Inout
 
 extension Bit.Vector.Dynamic {
 
@@ -25,7 +28,7 @@ extension Bit.Vector.Dynamic {
 extension Property.Inout where Tag == Bit.Vector.Dynamic.Toggle, Base == Bit.Vector.Dynamic {
 
     @inlinable
-    public mutating func returning(_ index: Bit.Index) throws(Bit.Vector.Dynamic.Error) -> Bool {
+    public mutating func returning(_ index: Index<Bit>) throws(Bit.Vector.Dynamic.Error) -> Bool {
         try base.value.toggle(index)
         return try base.value.get(index)
     }
@@ -34,7 +37,7 @@ extension Property.Inout where Tag == Bit.Vector.Dynamic.Toggle, Base == Bit.Vec
 extension Property.Inout where Tag == Bit.Vector.Set, Base == Bit.Vector.Dynamic {
 
     @inlinable
-    public mutating func returning(_ index: Bit.Index) throws(Bit.Vector.Dynamic.Error) -> Bool {
+    public mutating func returning(_ index: Index<Bit>) throws(Bit.Vector.Dynamic.Error) -> Bool {
         let previous = try base.value.get(index)
         try base.value.set(index)
         return previous
@@ -44,7 +47,7 @@ extension Property.Inout where Tag == Bit.Vector.Set, Base == Bit.Vector.Dynamic
 extension Property.Inout where Tag == Bit.Vector.Clear, Base == Bit.Vector.Dynamic {
 
     @inlinable
-    public mutating func returning(_ index: Bit.Index) throws(Bit.Vector.Dynamic.Error) -> Bool {
+    public mutating func returning(_ index: Index<Bit>) throws(Bit.Vector.Dynamic.Error) -> Bool {
         let previous = try base.value.get(index)
         try base.value.clear(index)
         return previous

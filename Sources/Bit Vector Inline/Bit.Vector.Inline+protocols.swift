@@ -1,5 +1,5 @@
 public import Cardinal_Hash
-
+public import Cardinal_Standard_Library_Integration
 extension Bit.Vector.Inline: Equatable {
 
     @inlinable

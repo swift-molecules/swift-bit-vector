@@ -1,7 +1,9 @@
 import Tagged_Carrier
 public import Iterator
 import Sequence
-
+public import Index
+public import Iterable
+public import Ordinal_Protocol
 extension Bit.Vector.Ones {
 
     @safe
@@ -10,10 +12,10 @@ extension Bit.Vector.Ones {
         let _storage: InlineArray<wordCount, UInt>
 
         @usableFromInline
-        let _capacity: Bit.Index.Count
+        let _capacity: Index<Bit>.Count
 
         @inlinable
-        package init(storage: InlineArray<wordCount, UInt>, capacity: Bit.Index.Count) {
+        package init(storage: InlineArray<wordCount, UInt>, capacity: Index<Bit>.Count) {
             self._storage = storage
             self._capacity = capacity
         }
@@ -22,7 +24,7 @@ extension Bit.Vector.Ones {
 
 extension Bit.Vector.Ones.Inline: Iterable {
 
-    public typealias Element = Bit.Index
+    public typealias Element = Index<Bit>
 
     @_implements(Iterable,Iterator)
     public typealias IterableIterator = BitVectorMaterializingIterator<ElementIterator>

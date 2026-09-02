@@ -1,6 +1,7 @@
 import Affine
-import Cardinal_Tagged
-
+public import Cardinal_Tagged
+public import Ordinal_Protocol
+public import Ordinal_Standard_Library_Integration
 extension Bit.Vector.Inline {
 
     @inlinable

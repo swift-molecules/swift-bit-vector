@@ -1,7 +1,10 @@
 import Tagged_Carrier
-import Cardinal_Tagged
+public import Cardinal_Tagged
 import Affine
 public import Affine_Carrier
+public import Index
+public import Cardinal_Standard_Library_Integration
+public import Ordinal_Protocol
 
 extension Bit.Vector.Dynamic {
 
@@ -60,7 +63,7 @@ extension Bit.Vector.Dynamic {
 extension Bit.Vector.Dynamic {
 
     @inlinable
-    public mutating func resize(to newCount: Bit.Index.Count, fill: Bool = false) {
+    public mutating func resize(to newCount: Index<Bit>.Count, fill: Bool = false) {
         let newPack = Bit.Pack<UInt>(count: newCount, bitsPerWord: .bitsPerWord)
         let oldWordCount = _storage.count
         let newWordCount = Int(bitPattern: newPack.words.count)

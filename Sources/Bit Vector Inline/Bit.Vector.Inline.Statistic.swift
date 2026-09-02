@@ -1,9 +1,11 @@
 import Tagged_Carrier
-import Cardinal_Tagged
+public import Cardinal_Tagged
 import Ownership
 import Property
 import Property_Ownership
-
+public import Index
+public import Ordinal_Protocol
+public import Ownership_Inout
 extension Bit.Vector.Inline {
 
     public enum Statistic: Sendable {}
@@ -28,10 +30,10 @@ extension Property.Inout.Typed.Valued
 where Tag == Bit.Vector.Inline<n>.Statistic, Base == Bit.Vector.Inline<n>, Element == Bit {
 
     @inlinable
-    public var `true`: Bit.Index.Count { base.value.popcount }
+    public var `true`: Index<Bit>.Count { base.value.popcount }
 
     @inlinable
-    public var `false`: Bit.Index.Count {
+    public var `false`: Index<Bit>.Count {
         base.value._count.subtract.saturating(base.value.popcount)
     }
 }

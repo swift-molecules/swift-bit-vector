@@ -1,15 +1,20 @@
 import Tagged_Carrier
-import Cardinal_Tagged
-import Ordinal_Comparison
-import Ordinal_Tagged
+public import Cardinal_Tagged
+public import Ordinal_Comparison
+public import Ordinal_Predecessor
+public import Ordinal_Tagged
 import Ownership
 import Property
 import Property_Ownership
-
+public import Index
+public import Cardinal_Standard_Library_Integration
+public import Ordinal_Standard_Library_Integration
+public import Ownership_Inout
+public import Ordinal_Protocol
 extension Property.Inout where Tag == Bit.Vector.Clear, Base: Bit.Vector.`Protocol` & ~Copyable {
 
     @inlinable
-    public mutating func range(_ range: Swift.Range<Bit.Index>) {
+    public mutating func range(_ range: Swift.Range<Index<Bit>>) {
         guard range.upperBound > range.lowerBound else { return }
 
         let startLoc = Bit.Pack<UInt>.Location(index: range.lowerBound, bitsPerWord: .bitsPerWord)

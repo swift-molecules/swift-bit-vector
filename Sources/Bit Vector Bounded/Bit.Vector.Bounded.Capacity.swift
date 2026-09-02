@@ -1,7 +1,8 @@
 import Tagged_Carrier
-import Cardinal_Tagged
+public import Cardinal_Tagged
 import Property
-
+public import Index
+public import Ordinal_Protocol
 extension Bit.Vector.Bounded {
 
     public enum Capacity: Sendable {}
@@ -18,8 +19,8 @@ extension Bit.Vector.Bounded {
 extension Property where Tag == Bit.Vector.Bounded.Capacity, Base == Bit.Vector.Bounded {
 
     @inlinable
-    public var maximum: Bit.Index.Count { base._capacity }
+    public var maximum: Index<Bit>.Count { base._capacity }
 
     @inlinable
-    public var remaining: Bit.Index.Count { base._capacity.subtract.saturating(base._count) }
+    public var remaining: Index<Bit>.Count { base._capacity.subtract.saturating(base._count) }
 }

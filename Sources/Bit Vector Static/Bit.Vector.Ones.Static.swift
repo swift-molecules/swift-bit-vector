@@ -1,6 +1,9 @@
 import Tagged_Carrier
 public import Iterator
 import Sequence
+public import Index
+public import Iterable
+public import Ordinal_Protocol
 
 extension Bit.Vector.Ones {
 
@@ -18,7 +21,7 @@ extension Bit.Vector.Ones {
 
 extension Bit.Vector.Ones.Static: Iterable {
 
-    public typealias Element = Bit.Index
+    public typealias Element = Index<Bit>
 
     @_implements(Iterable,Iterator)
     public typealias IterableIterator = BitVectorMaterializingIterator<ElementIterator>
