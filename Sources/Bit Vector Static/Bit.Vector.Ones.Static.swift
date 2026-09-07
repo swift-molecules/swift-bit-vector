@@ -2,7 +2,6 @@ import Tagged_Carrier
 public import Iterator
 import Sequence
 public import Index
-public import Iterable
 public import Ordinal_Protocol
 
 extension Bit.Vector.Ones {

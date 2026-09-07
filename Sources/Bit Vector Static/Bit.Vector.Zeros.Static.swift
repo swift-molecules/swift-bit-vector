@@ -3,7 +3,6 @@ import Affine
 public import Iterator
 import Sequence
 public import Index
-public import Iterable
 public import Affine_Discrete
 public import Ordinal_Protocol
 extension Bit.Vector.Zeros {
