@@ -3,13 +3,12 @@ public import Cardinal_Tagged
 public import Ordinal_Comparison
 public import Ordinal_Predecessor
 public import Ordinal_Tagged
-import Ownership
 import Property
 import Property_Ownership
 public import Index
 public import Cardinal_Standard_Library_Integration
 public import Ordinal_Standard_Library_Integration
-public import Ownership_Inout
+public import Ownership
 public import Ordinal_Protocol
 extension Property.Inout where Tag == Bit.Vector.Clear, Base: Bit.Vector.`Protocol` & ~Copyable {
 

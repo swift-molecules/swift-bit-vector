@@ -1,11 +1,10 @@
 import Tagged_Carrier
 public import Cardinal_Tagged
-import Ownership
 import Property
 import Property_Ownership
 public import Index
 public import Ordinal_Protocol
-public import Ownership_Inout
+public import Ownership
 extension Bit.Vector.Inline {
 
     public enum Capacity: Sendable {}

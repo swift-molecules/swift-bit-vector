@@ -1,10 +1,9 @@
 import Tagged_Carrier
-import Ownership
 import Property
 import Property_Ownership
 public import Index
 public import Ordinal_Protocol
-public import Ownership_Inout
+public import Ownership
 
 extension Bit.Vector.Dynamic {
 
