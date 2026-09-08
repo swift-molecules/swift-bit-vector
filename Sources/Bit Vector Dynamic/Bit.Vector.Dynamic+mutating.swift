@@ -1,4 +1,5 @@
-import Tagged_Carrier
+import Carrier
+import Tagged
 import Difference
 public import Index
 public import Ordinal

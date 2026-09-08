@@ -1,8 +1,8 @@
-import Tagged_Carrier
+import Carrier
+import Tagged
 public import Ordinal_Tagged
 import Cardinal
 import Ordinal
-import Tagged
 import Difference
 public import Index
 public import Ordinal

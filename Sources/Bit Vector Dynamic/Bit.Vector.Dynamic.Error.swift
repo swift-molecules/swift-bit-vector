@@ -1,4 +1,5 @@
-import Tagged_Carrier
+import Carrier
+import Tagged
 public import Index
 public import Ordinal
 public enum __BitVectorDynamicError: Swift.Error, Sendable, Equatable {

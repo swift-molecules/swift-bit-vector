@@ -1,4 +1,5 @@
-import Tagged_Carrier
+import Carrier
+import Tagged
 public import Iterator
 import Sequence
 public import Index

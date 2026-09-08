@@ -46,6 +46,10 @@ let package = Package(
         ),
     ],
     dependencies: [
+        .package(url: "https://github.com/swift-atoms/swift-addition.git", branch: "main"),
+        .package(url: "https://github.com/swift-atoms/swift-carrier.git", branch: "main"),
+        .package(url: "https://github.com/swift-atoms/swift-subtraction.git", branch: "main"),
+
         .package(
             url: "https://github.com/swift-molecules/swift-cardinal-tagged.git",
             branch: "main"
@@ -102,24 +106,16 @@ let package = Package(
             url: "https://github.com/swift-atoms/swift-tagged.git",
             branch: "main"
         ),
-        .package(
-            url: "https://github.com/swift-molecules/swift-cardinal-property.git",
-            branch: "main"
-        ),
-        .package(
-            url: "https://github.com/swift-molecules/swift-property-ownership.git",
-            branch: "main"
-        ),
-        .package(
-            url: "https://github.com/swift-molecules/swift-tagged-carrier.git",
-            branch: "main"
-        ),
     ],
     targets: [
 
         .target(
             name: "Bit Vector Storage",
             dependencies: [
+                .product(name: "Addition", package: "swift-addition"),
+                .product(name: "Carrier", package: "swift-carrier"),
+                .product(name: "Subtraction", package: "swift-subtraction"),
+
                 .product(name: "Bit", package: "swift-bit"),
                 .product(name: "Bit Pack", package: "swift-bit-pack"),
                 .product(name: "Property", package: "swift-property"),
@@ -128,23 +124,20 @@ let package = Package(
                 .product(name: "Iterator", package: "swift-iterator"),
                 .product(name: "Cardinal", package: "swift-cardinal"),
                 .product(name: "Index", package: "swift-index"),
-                .product(name: "Cardinal", package: "swift-cardinal"),
-                .product(name: "Ordinal", package: "swift-ordinal"),
                 .product(name: "Ordinal", package: "swift-ordinal"),
                 .product(name: "Tagged", package: "swift-tagged"),
                 .product(name: "Difference", package: "swift-difference"),
-                .product(name: "Cardinal Property", package: "swift-cardinal-property"),
                 .product(name: "Cardinal Tagged", package: "swift-cardinal-tagged"),
                 .product(name: "Ordinal Cardinal", package: "swift-ordinal-cardinal"),
                 .product(name: "Ordinal Tagged", package: "swift-ordinal-tagged"),
-                .product(name: "Property Ownership", package: "swift-property-ownership"),
-                .product(name: "Tagged Carrier", package: "swift-tagged-carrier"),
             ]
         ),
 
         .target(
             name: "Bit Vector Static",
             dependencies: [
+                .product(name: "Carrier", package: "swift-carrier"),
+
                 "Bit Vector Storage",
                 .product(name: "Bit", package: "swift-bit"),
                 .product(name: "Sequence", package: "swift-sequence"),
@@ -153,19 +146,18 @@ let package = Package(
                 .product(name: "Cardinal", package: "swift-cardinal"),
                 .product(name: "Index", package: "swift-index"),
                 .product(name: "Ownership", package: "swift-ownership"),
-                .product(name: "Cardinal", package: "swift-cardinal"),
-                .product(name: "Ordinal", package: "swift-ordinal"),
                 .product(name: "Ordinal", package: "swift-ordinal"),
                 .product(name: "Tagged", package: "swift-tagged"),
                 .product(name: "Cardinal Tagged", package: "swift-cardinal-tagged"),
                 .product(name: "Ordinal Cardinal", package: "swift-ordinal-cardinal"),
                 .product(name: "Ordinal Tagged", package: "swift-ordinal-tagged"),
-                .product(name: "Tagged Carrier", package: "swift-tagged-carrier"),
             ]
         ),
         .target(
             name: "Bit Vector Bounded",
             dependencies: [
+                .product(name: "Carrier", package: "swift-carrier"),
+
                 "Bit Vector Storage",
                 .product(name: "Property", package: "swift-property"),
                 .product(name: "Sequence", package: "swift-sequence"),
@@ -174,21 +166,18 @@ let package = Package(
                 .product(name: "Cardinal", package: "swift-cardinal"),
                 .product(name: "Index", package: "swift-index"),
                 .product(name: "Ownership", package: "swift-ownership"),
-                .product(name: "Cardinal", package: "swift-cardinal"),
-                .product(name: "Ordinal", package: "swift-ordinal"),
                 .product(name: "Ordinal", package: "swift-ordinal"),
                 .product(name: "Tagged", package: "swift-tagged"),
-                .product(name: "Cardinal Property", package: "swift-cardinal-property"),
                 .product(name: "Cardinal Tagged", package: "swift-cardinal-tagged"),
                 .product(name: "Ordinal Cardinal", package: "swift-ordinal-cardinal"),
                 .product(name: "Ordinal Tagged", package: "swift-ordinal-tagged"),
-                .product(name: "Property Ownership", package: "swift-property-ownership"),
-                .product(name: "Tagged Carrier", package: "swift-tagged-carrier"),
             ]
         ),
         .target(
             name: "Bit Vector Inline",
             dependencies: [
+                .product(name: "Carrier", package: "swift-carrier"),
+
                 "Bit Vector Storage",
                 .product(name: "Property", package: "swift-property"),
                 .product(name: "Ownership", package: "swift-ownership"),
@@ -197,21 +186,18 @@ let package = Package(
                 .product(name: "Difference", package: "swift-difference"),
                 .product(name: "Cardinal", package: "swift-cardinal"),
                 .product(name: "Index", package: "swift-index"),
-                .product(name: "Cardinal", package: "swift-cardinal"),
-                .product(name: "Ordinal", package: "swift-ordinal"),
                 .product(name: "Ordinal", package: "swift-ordinal"),
                 .product(name: "Tagged", package: "swift-tagged"),
-                .product(name: "Cardinal Property", package: "swift-cardinal-property"),
                 .product(name: "Cardinal Tagged", package: "swift-cardinal-tagged"),
                 .product(name: "Ordinal Cardinal", package: "swift-ordinal-cardinal"),
                 .product(name: "Ordinal Tagged", package: "swift-ordinal-tagged"),
-                .product(name: "Property Ownership", package: "swift-property-ownership"),
-                .product(name: "Tagged Carrier", package: "swift-tagged-carrier"),
             ]
         ),
         .target(
             name: "Bit Vector Dynamic",
             dependencies: [
+                .product(name: "Carrier", package: "swift-carrier"),
+
                 "Bit Vector Storage",
                 "Bit Vector Bounded",
                 "Bit Vector Inline",
@@ -221,16 +207,11 @@ let package = Package(
                 .product(name: "Difference", package: "swift-difference"),
                 .product(name: "Cardinal", package: "swift-cardinal"),
                 .product(name: "Index", package: "swift-index"),
-                .product(name: "Cardinal", package: "swift-cardinal"),
-                .product(name: "Ordinal", package: "swift-ordinal"),
                 .product(name: "Ordinal", package: "swift-ordinal"),
                 .product(name: "Tagged", package: "swift-tagged"),
-                .product(name: "Cardinal Property", package: "swift-cardinal-property"),
                 .product(name: "Cardinal Tagged", package: "swift-cardinal-tagged"),
                 .product(name: "Ordinal Cardinal", package: "swift-ordinal-cardinal"),
                 .product(name: "Ordinal Tagged", package: "swift-ordinal-tagged"),
-                .product(name: "Property Ownership", package: "swift-property-ownership"),
-                .product(name: "Tagged Carrier", package: "swift-tagged-carrier"),
             ]
         ),
 
@@ -277,7 +258,6 @@ let package = Package(
                 .product(name: "Iterator", package: "swift-iterator"),
                 .product(name: "Ownership", package: "swift-ownership"),
                 .product(name: "Cardinal", package: "swift-cardinal"),
-                .product(name: "Ordinal", package: "swift-ordinal"),
                 .product(name: "Ordinal", package: "swift-ordinal"),
                 .product(name: "Tagged", package: "swift-tagged"),
             ]

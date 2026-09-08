@@ -1,4 +1,5 @@
-import Tagged_Carrier
+import Carrier
+import Tagged
 public import Difference
 public import Iterator
 import Sequence

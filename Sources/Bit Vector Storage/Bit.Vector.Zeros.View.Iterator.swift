@@ -1,9 +1,9 @@
 public import Cardinal
 public import Ordinal_Cardinal
-import Tagged_Carrier
+import Carrier
+import Tagged
 import Cardinal
 import Ordinal
-import Tagged
 public import Index
 public import Ordinal
 extension Bit.Vector.Zeros.View {

@@ -1,8 +1,8 @@
-import Tagged_Carrier
+import Carrier
+import Tagged
 public import Bit
 public import Index
 import Cardinal
-import Tagged
 public import Ordinal
 extension Bit.Vector {
 

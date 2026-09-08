@@ -1,4 +1,5 @@
-import Tagged_Carrier
+import Carrier
+import Tagged
 public import Cardinal_Tagged
 import Property
 public import Index
