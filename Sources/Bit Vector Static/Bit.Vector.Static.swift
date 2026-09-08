@@ -3,8 +3,7 @@ public import Bit
 public import Index
 import Cardinal
 import Tagged
-public import Ordinal_Protocol
-public import Ordinal_Standard_Library_Integration
+public import Ordinal
 extension Bit.Vector {
 
     public struct Static<let wordCount: Int>: Sendable {

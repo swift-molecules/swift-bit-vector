@@ -1,5 +1,5 @@
 public import Index
-public import Ordinal_Protocol
+public import Ordinal
 import Tagged_Carrier
 extension Bit.Vector: Bit.Vector.`Protocol` {
 

@@ -3,8 +3,8 @@ public import Ownership
 public import Property
 public import Property_Ownership
 public import Index
-public import Cardinal_Standard_Library_Integration
-public import Ordinal_Protocol
+public import Cardinal
+public import Ordinal
 extension Bit.Vector.Dynamic {
 
     @inlinable

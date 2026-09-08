@@ -1,5 +1,5 @@
 import Property
-public import Cardinal_Hash
+public import Cardinal
 import Property_Ownership
 public import Ownership
 extension Bit.Vector.Inline {

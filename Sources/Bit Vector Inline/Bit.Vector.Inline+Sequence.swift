@@ -1,4 +1,4 @@
-public import Cardinal_Standard_Library_Integration
+public import Cardinal
 extension Bit.Vector.Inline: Swift.Sequence {
 
     public struct Iterator: BitVectorElementIteratorProtocol, IteratorProtocol, Sendable {

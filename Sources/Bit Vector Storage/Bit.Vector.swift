@@ -1,13 +1,11 @@
-public import Cardinal_Carrier
 import Tagged_Carrier
 import Cardinal
 import Ordinal
 import Tagged
 public import Bit
 public import Index
-public import Ordinal_Protocol
-public import Cardinal_Standard_Library_Integration
-public import Ordinal_Standard_Library_Integration
+public import Cardinal
+public import Ordinal
 extension Bit {
 
     @safe

@@ -1,13 +1,11 @@
-public import Cardinal_Carrier
+public import Cardinal
 public import Ordinal_Cardinal
-public import Ordinal_Comparison
 import Tagged_Carrier
 import Cardinal
 import Ordinal
 import Tagged
 public import Index
-public import Ordinal_Protocol
-public import Ordinal_Standard_Library_Integration
+public import Ordinal
 extension Bit.Vector.Ones.View {
 
     @safe

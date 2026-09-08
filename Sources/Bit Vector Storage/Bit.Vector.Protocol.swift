@@ -1,6 +1,6 @@
 import Tagged_Carrier
 public import Index
-public import Ordinal_Protocol
+public import Ordinal
 extension Bit.Vector {
 
     public protocol `Protocol`: ~Copyable {

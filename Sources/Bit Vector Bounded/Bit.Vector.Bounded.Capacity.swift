@@ -2,7 +2,7 @@ import Tagged_Carrier
 public import Cardinal_Tagged
 import Property
 public import Index
-public import Ordinal_Protocol
+public import Ordinal
 extension Bit.Vector.Bounded {
 
     public enum Capacity: Sendable {}

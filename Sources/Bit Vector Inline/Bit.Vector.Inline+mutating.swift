@@ -3,12 +3,10 @@ public import Ordinal_Tagged
 import Cardinal
 import Ordinal
 import Tagged
-import Affine
+import Difference
 public import Index
-public import Ordinal_Predecessor
-public import Ordinal_Protocol
-public import Ordinal_Standard_Library_Integration
-public import Cardinal_Standard_Library_Integration
+public import Ordinal
+public import Cardinal
 extension Bit.Vector.Inline {
 
     @inlinable

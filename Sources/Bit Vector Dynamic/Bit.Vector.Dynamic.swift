@@ -1,9 +1,9 @@
 import Tagged_Carrier
 public import Cardinal_Tagged
-public import Cardinal_Hash
-import Affine
+public import Cardinal
+import Difference
 public import Index
-public import Ordinal_Protocol
+public import Ordinal
 
 extension Bit.Vector {
 

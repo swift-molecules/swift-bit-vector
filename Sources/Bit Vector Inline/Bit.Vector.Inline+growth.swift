@@ -1,7 +1,6 @@
-import Affine
+import Difference
 public import Cardinal_Tagged
-public import Ordinal_Protocol
-public import Ordinal_Standard_Library_Integration
+public import Ordinal
 extension Bit.Vector.Inline {
 
     @inlinable

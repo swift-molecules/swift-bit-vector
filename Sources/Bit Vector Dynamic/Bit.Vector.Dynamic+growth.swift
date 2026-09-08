@@ -1,10 +1,9 @@
 import Tagged_Carrier
 public import Cardinal_Tagged
-import Affine
-public import Affine_Carrier
+public import Difference
 public import Index
-public import Cardinal_Standard_Library_Integration
-public import Ordinal_Protocol
+public import Cardinal
+public import Ordinal
 
 extension Bit.Vector.Dynamic {
 
@@ -81,7 +80,7 @@ extension Bit.Vector.Dynamic {
         if fill && newCount > _count && oldWordCount > 0 {
             let oldLoc = Bit.Pack<UInt>.Location(count: _count, bitsPerWord: .bitsPerWord)
             if oldLoc.bit > .zero && oldLoc.word < newPack.words.count {
-                let highMask: UInt = ~0 << oldLoc.bit.magnitude
+                let highMask: UInt = ~0 << oldLoc.bit.underlying.magnitude.value.rawValue
                 _storage[oldLoc.word] |= highMask
             }
         }

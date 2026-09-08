@@ -2,7 +2,7 @@ import Tagged_Carrier
 import Cardinal
 import Ordinal
 import Tagged
-import Affine
+import Difference
 
 extension Bit.Vector.Dynamic {
 

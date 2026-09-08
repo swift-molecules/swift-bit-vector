@@ -1,7 +1,6 @@
 import Tagged_Carrier
 public import Index
-public import Ordinal_Protocol
-public import Ordinal_Standard_Library_Integration
+public import Ordinal
 extension Bit.Vector {
 
     @inlinable

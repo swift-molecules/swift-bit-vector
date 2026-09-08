@@ -1,13 +1,12 @@
 import Tagged_Carrier
 import Cardinal
-public import Ordinal_Comparison
 import Property
 import Property_Ownership
 import Tagged
 public import Index
-public import Affine_Discrete
-public import Cardinal_Standard_Library_Integration
-public import Ordinal_Protocol
+public import Difference
+public import Cardinal
+public import Ordinal
 public import Ownership
 extension Bit.Vector.`Protocol` where Self: ~Copyable {
 
@@ -76,7 +75,7 @@ extension Bit.Vector.`Protocol` where Self: ~Copyable {
             if w != 0 {
                 let location = Bit.Pack<UInt>.Location(
                     word: .init(Ordinal(UInt(i))),
-                    bit: .init(Affine.Discrete.Vector(w.trailingZeroBitCount))
+                    bit: .init(Difference(w.trailingZeroBitCount))
                 )
                 setWord(at: i, to: w & (w &- 1))
                 let globalIndex = location.index(bitsPerWord: .bitsPerWord)

@@ -1,7 +1,7 @@
 import Tagged_Carrier
-import Affine
+import Difference
 public import Index
-public import Ordinal_Protocol
+public import Ordinal
 
 extension Bit.Vector.Dynamic {
 

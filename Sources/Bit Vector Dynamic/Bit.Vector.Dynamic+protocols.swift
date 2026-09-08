@@ -1,5 +1,4 @@
-public import Cardinal_Hash
-public import Cardinal_Standard_Library_Integration
+public import Cardinal
 
 extension Bit.Vector.Dynamic: Equatable {
 

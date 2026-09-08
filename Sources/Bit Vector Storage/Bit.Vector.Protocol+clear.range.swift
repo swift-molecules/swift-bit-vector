@@ -1,15 +1,13 @@
+public import Difference
 import Tagged_Carrier
 public import Cardinal_Tagged
-public import Ordinal_Comparison
-public import Ordinal_Predecessor
 public import Ordinal_Tagged
 import Property
 import Property_Ownership
 public import Index
-public import Cardinal_Standard_Library_Integration
-public import Ordinal_Standard_Library_Integration
+public import Cardinal
+public import Ordinal
 public import Ownership
-public import Ordinal_Protocol
 extension Property.Inout where Tag == Bit.Vector.Clear, Base: Bit.Vector.`Protocol` & ~Copyable {
 
     @inlinable
@@ -23,8 +21,12 @@ extension Property.Inout where Tag == Bit.Vector.Clear, Base: Bit.Vector.`Protoc
             index: endIndex,
             bitsPerWord: .bitsPerWord
         )
-        let startBit = startLoc.bit.magnitude
-        let endBit = endLoc.bit.magnitude
+        let startBit = Index<Bit>.Count(
+            _unchecked: startLoc.bit.underlying.magnitude.value
+        )
+        let endBit = Index<Bit>.Count(
+            _unchecked: endLoc.bit.underlying.magnitude.value
+        )
 
         let startWord = Int(bitPattern: startLoc.word)
         let endWord = Int(bitPattern: endLoc.word)

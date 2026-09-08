@@ -1,6 +1,6 @@
 import Property
 
-public import Cardinal_Hash
+public import Cardinal
 
 extension Bit.Vector.Bounded {
 

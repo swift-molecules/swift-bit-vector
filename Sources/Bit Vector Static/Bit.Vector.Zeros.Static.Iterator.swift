@@ -3,7 +3,7 @@ import Cardinal
 import Ordinal
 import Tagged
 public import Index
-public import Ordinal_Protocol
+public import Ordinal
 extension Bit.Vector.Zeros.Static {
 
     @safe

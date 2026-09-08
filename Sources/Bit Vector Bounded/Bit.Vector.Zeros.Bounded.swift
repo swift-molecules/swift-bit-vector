@@ -2,8 +2,8 @@ import Tagged_Carrier
 public import Iterator
 import Sequence
 public import Index
-public import Affine_Discrete
-public import Ordinal_Protocol
+public import Difference
+public import Ordinal
 extension Bit.Vector.Zeros {
 
     @safe
@@ -31,7 +31,7 @@ extension Bit.Vector.Zeros.Bounded {
             if inverted != 0 {
                 let location = Bit.Pack<UInt>.Location(
                     word: .init(Ordinal(UInt(i))),
-                    bit: .init(Affine.Discrete.Vector(inverted.trailingZeroBitCount))
+                    bit: .init(Difference(inverted.trailingZeroBitCount))
                 )
                 let globalIndex = location.index(bitsPerWord: .bitsPerWord)
                 guard globalIndex < max else { return nil }

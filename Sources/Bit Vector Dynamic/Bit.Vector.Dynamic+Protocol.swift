@@ -1,6 +1,6 @@
 public import Tagged_Carrier
 public import Index
-public import Ordinal_Protocol
+public import Ordinal
 extension Bit.Vector.Dynamic: Bit.Vector.`Protocol` {
 
     @inlinable
