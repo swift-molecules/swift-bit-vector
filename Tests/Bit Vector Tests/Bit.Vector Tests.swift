@@ -111,7 +111,7 @@ extension Bit.Vector {
             let onesView = bits.ones
             var m = onesView.iterableMakeIterator()
             var visited: [Index<Bit>] = []
-            while true {
+            for _ in 0..<16 {
                 let span = m.next(maximumCount: Cardinal(UInt.max))
                 if span.isEmpty { break }
                 for index in span.indices {
