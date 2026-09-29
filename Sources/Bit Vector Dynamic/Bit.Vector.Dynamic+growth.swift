@@ -1,9 +1,9 @@
 import Carrier
 import Tagged
-public import Cardinal_Tagged
+public import Cardinal
+public import Tagged
 public import Difference
 public import Index
-public import Cardinal
 public import Ordinal
 
 extension Bit.Vector.Dynamic {

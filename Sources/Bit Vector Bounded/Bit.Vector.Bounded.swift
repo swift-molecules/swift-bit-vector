@@ -1,11 +1,11 @@
 import Carrier
 import Tagged
-public import Cardinal_Tagged
-public import Ordinal_Tagged
+public import Cardinal
+public import Tagged
+public import Ordinal
+public import Property
 import Difference
 public import Index
-public import Cardinal
-public import Ordinal
 extension Bit.Vector {
 
     public struct Bounded: Sendable {

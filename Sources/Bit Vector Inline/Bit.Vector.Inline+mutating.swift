@@ -1,12 +1,13 @@
 import Carrier
 import Tagged
-public import Ordinal_Tagged
+public import Cardinal
+public import Ordinal
+public import Property
+public import Tagged
 import Cardinal
 import Ordinal
 import Difference
 public import Index
-public import Ordinal
-public import Cardinal
 extension Bit.Vector.Inline {
 
     @inlinable

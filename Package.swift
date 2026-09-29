@@ -49,29 +49,12 @@ let package = Package(
         .package(url: "https://github.com/swift-atoms/swift-addition.git", branch: "main"),
         .package(url: "https://github.com/swift-atoms/swift-carrier.git", branch: "main"),
         .package(url: "https://github.com/swift-atoms/swift-subtraction.git", branch: "main"),
-
-        .package(
-            url: "https://github.com/swift-molecules/swift-cardinal-tagged.git",
-            branch: "main"
-        ),
-        .package(
-            url: "https://github.com/swift-molecules/swift-ordinal-cardinal.git",
-            branch: "main"
-        ),
-        .package(
-            url: "https://github.com/swift-molecules/swift-ordinal-tagged.git",
-            branch: "main"
-        ),
         .package(
             url: "https://github.com/swift-atoms/swift-bit.git",
             branch: "main"
         ),
         .package(
             url: "https://github.com/swift-atoms/swift-index.git",
-            branch: "main"
-        ),
-        .package(
-            url: "https://github.com/swift-molecules/swift-bit-pack.git",
             branch: "main"
         ),
         .package(
@@ -106,6 +89,7 @@ let package = Package(
             url: "https://github.com/swift-atoms/swift-tagged.git",
             branch: "main"
         ),
+        .package(url: "https://github.com/swift-atoms/swift-ratio.git", branch: "main", traits: ["Bit"]),
     ],
     targets: [
 
@@ -117,7 +101,6 @@ let package = Package(
                 .product(name: "Subtraction", package: "swift-subtraction"),
 
                 .product(name: "Bit", package: "swift-bit"),
-                .product(name: "Bit Pack", package: "swift-bit-pack"),
                 .product(name: "Property", package: "swift-property"),
                 .product(name: "Ownership", package: "swift-ownership"),
                 .product(name: "Sequence", package: "swift-sequence"),
@@ -127,9 +110,7 @@ let package = Package(
                 .product(name: "Ordinal", package: "swift-ordinal"),
                 .product(name: "Tagged", package: "swift-tagged"),
                 .product(name: "Difference", package: "swift-difference"),
-                .product(name: "Cardinal Tagged", package: "swift-cardinal-tagged"),
-                .product(name: "Ordinal Cardinal", package: "swift-ordinal-cardinal"),
-                .product(name: "Ordinal Tagged", package: "swift-ordinal-tagged"),
+                .product(name: "Ratio", package: "swift-ratio"),
             ]
         ),
 
@@ -148,9 +129,7 @@ let package = Package(
                 .product(name: "Ownership", package: "swift-ownership"),
                 .product(name: "Ordinal", package: "swift-ordinal"),
                 .product(name: "Tagged", package: "swift-tagged"),
-                .product(name: "Cardinal Tagged", package: "swift-cardinal-tagged"),
-                .product(name: "Ordinal Cardinal", package: "swift-ordinal-cardinal"),
-                .product(name: "Ordinal Tagged", package: "swift-ordinal-tagged"),
+                .product(name: "Property", package: "swift-property"),
             ]
         ),
         .target(
@@ -168,9 +147,6 @@ let package = Package(
                 .product(name: "Ownership", package: "swift-ownership"),
                 .product(name: "Ordinal", package: "swift-ordinal"),
                 .product(name: "Tagged", package: "swift-tagged"),
-                .product(name: "Cardinal Tagged", package: "swift-cardinal-tagged"),
-                .product(name: "Ordinal Cardinal", package: "swift-ordinal-cardinal"),
-                .product(name: "Ordinal Tagged", package: "swift-ordinal-tagged"),
             ]
         ),
         .target(
@@ -188,9 +164,6 @@ let package = Package(
                 .product(name: "Index", package: "swift-index"),
                 .product(name: "Ordinal", package: "swift-ordinal"),
                 .product(name: "Tagged", package: "swift-tagged"),
-                .product(name: "Cardinal Tagged", package: "swift-cardinal-tagged"),
-                .product(name: "Ordinal Cardinal", package: "swift-ordinal-cardinal"),
-                .product(name: "Ordinal Tagged", package: "swift-ordinal-tagged"),
             ]
         ),
         .target(
@@ -209,9 +182,6 @@ let package = Package(
                 .product(name: "Index", package: "swift-index"),
                 .product(name: "Ordinal", package: "swift-ordinal"),
                 .product(name: "Tagged", package: "swift-tagged"),
-                .product(name: "Cardinal Tagged", package: "swift-cardinal-tagged"),
-                .product(name: "Ordinal Cardinal", package: "swift-ordinal-cardinal"),
-                .product(name: "Ordinal Tagged", package: "swift-ordinal-tagged"),
             ]
         ),
 
@@ -242,10 +212,7 @@ let package = Package(
                     name: "Tagged",
                     package: "swift-tagged"
                 ),
-                .product(
-                    name: "Bit Pack Test Support",
-                    package: "swift-bit-pack"
-                ),
+                .product(name: "Ratio Test Support", package: "swift-ratio"),
             ],
             path: "Tests/Support"
         ),

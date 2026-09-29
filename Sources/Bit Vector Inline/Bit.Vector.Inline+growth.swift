@@ -1,5 +1,6 @@
 import Difference
-public import Cardinal_Tagged
+public import Cardinal
+public import Tagged
 public import Ordinal
 extension Bit.Vector.Inline {
 

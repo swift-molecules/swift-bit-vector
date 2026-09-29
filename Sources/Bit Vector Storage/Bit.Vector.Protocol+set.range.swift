@@ -1,14 +1,14 @@
 public import Difference
 import Carrier
 import Tagged
-public import Cardinal_Tagged
-public import Ordinal_Tagged
+public import Cardinal
+public import Tagged
+public import Ordinal
+public import Property
 import Property
 import Ownership
 public import Index
-public import Ordinal
 public import Ownership
-public import Cardinal
 extension Property.Inout where Tag == Bit.Vector.Set, Base: Bit.Vector.`Protocol` & ~Copyable {
 
     @inlinable
