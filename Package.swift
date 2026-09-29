@@ -89,7 +89,7 @@ let package = Package(
             url: "https://github.com/swift-atoms/swift-tagged.git",
             branch: "main"
         ),
-        .package(url: "https://github.com/swift-atoms/swift-ratio.git", branch: "main", traits: ["Bit"]),
+        .package(url: "https://github.com/swift-atoms/swift-ratio.git", branch: "main", traits: ["Bit", "Ordinal"]),
     ],
     targets: [
 
