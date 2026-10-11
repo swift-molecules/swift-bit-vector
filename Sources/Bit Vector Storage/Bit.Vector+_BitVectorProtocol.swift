@@ -2,7 +2,7 @@ public import Index
 public import Ordinal
 import Carrier
 import Tagged
-extension Bit.Vector: Bit.Vector.`Protocol` {
+extension Bit.Vector: _BitVectorProtocol {
 
     @inlinable
     public var bitCapacity: Index<Bit>.Count { capacity }

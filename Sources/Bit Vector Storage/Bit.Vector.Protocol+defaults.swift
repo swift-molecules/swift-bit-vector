@@ -8,7 +8,7 @@ public import Difference
 public import Cardinal
 public import Ordinal
 public import Ownership
-extension Bit.Vector.`Protocol` where Self: ~Copyable {
+extension _BitVectorProtocol where Self: ~Copyable {
 
     @inlinable
     public var wordCount: Int {
@@ -16,7 +16,7 @@ extension Bit.Vector.`Protocol` where Self: ~Copyable {
     }
 }
 
-extension Bit.Vector.`Protocol` where Self: ~Copyable {
+extension _BitVectorProtocol where Self: ~Copyable {
 
     @inlinable
     public var popcount: Index<Bit>.Count {
@@ -28,7 +28,7 @@ extension Bit.Vector.`Protocol` where Self: ~Copyable {
     }
 }
 
-extension Bit.Vector.`Protocol` where Self: ~Copyable {
+extension _BitVectorProtocol where Self: ~Copyable {
 
     @inlinable
     public var allFalse: Bool {
@@ -44,7 +44,7 @@ extension Bit.Vector.`Protocol` where Self: ~Copyable {
     }
 }
 
-extension Bit.Vector.`Protocol` where Self: ~Copyable {
+extension _BitVectorProtocol where Self: ~Copyable {
 
     @inlinable
     public static func clearAll(_ vector: inout Self) {
@@ -66,7 +66,7 @@ extension Bit.Vector.`Protocol` where Self: ~Copyable {
     }
 }
 
-extension Bit.Vector.`Protocol` where Self: ~Copyable {
+extension _BitVectorProtocol where Self: ~Copyable {
 
     @inlinable
     public mutating func popFirst() -> Index<Bit>? {
@@ -87,13 +87,13 @@ extension Bit.Vector.`Protocol` where Self: ~Copyable {
     }
 }
 
-extension Bit.Vector.`Protocol` where Self: ~Copyable {
+extension _BitVectorProtocol where Self: ~Copyable {
 
     @inlinable
     public var any: Bool { !allFalse }
 }
 
-extension Bit.Vector.`Protocol` where Self: ~Copyable {
+extension _BitVectorProtocol where Self: ~Copyable {
 
     @inlinable
     public var pop: Property<Bit.Vector.Pop, Self>.Inout {
@@ -129,7 +129,7 @@ extension Bit.Vector.`Protocol` where Self: ~Copyable {
     }
 }
 
-extension Property.Inout where Tag == Bit.Vector.Pop, Base: Bit.Vector.`Protocol` & ~Copyable {
+extension Property.Inout where Tag == Bit.Vector.Pop, Base: _BitVectorProtocol & ~Copyable {
 
     @inlinable
     public mutating func first() -> Index<Bit>? {
@@ -137,7 +137,7 @@ extension Property.Inout where Tag == Bit.Vector.Pop, Base: Bit.Vector.`Protocol
     }
 }
 
-extension Property.Inout where Tag == Bit.Vector.Set, Base: Bit.Vector.`Protocol` & ~Copyable {
+extension Property.Inout where Tag == Bit.Vector.Set, Base: _BitVectorProtocol & ~Copyable {
 
     @inlinable
     public mutating func all() {
@@ -145,7 +145,7 @@ extension Property.Inout where Tag == Bit.Vector.Set, Base: Bit.Vector.`Protocol
     }
 }
 
-extension Property.Inout where Tag == Bit.Vector.Clear, Base: Bit.Vector.`Protocol` & ~Copyable {
+extension Property.Inout where Tag == Bit.Vector.Clear, Base: _BitVectorProtocol & ~Copyable {
 
     @inlinable
     public mutating func all() {

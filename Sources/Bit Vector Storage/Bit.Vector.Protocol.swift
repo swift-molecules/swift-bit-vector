@@ -4,14 +4,16 @@ public import Index
 public import Ordinal
 extension Bit.Vector {
 
-    public protocol `Protocol`: ~Copyable {
+    public typealias `Protocol` = _BitVectorProtocol
+}
 
-        var bitCapacity: Index<Bit>.Count { get }
+public protocol _BitVectorProtocol: ~Copyable {
 
-        borrowing func word(at index: Int) -> UInt
+    var bitCapacity: Index<Bit>.Count { get }
 
-        mutating func setWord(at index: Int, to value: UInt)
+    borrowing func word(at index: Int) -> UInt
 
-        subscript(index: Index<Bit>) -> Bool { get set }
-    }
+    mutating func setWord(at index: Int, to value: UInt)
+
+    subscript(index: Index<Bit>) -> Bool { get set }
 }

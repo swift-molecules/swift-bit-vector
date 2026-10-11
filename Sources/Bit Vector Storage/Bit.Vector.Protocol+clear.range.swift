@@ -9,7 +9,7 @@ import Property
 import Ownership
 public import Index
 public import Ownership
-extension Property.Inout where Tag == Bit.Vector.Clear, Base: Bit.Vector.`Protocol` & ~Copyable {
+extension Property.Inout where Tag == Bit.Vector.Clear, Base: _BitVectorProtocol & ~Copyable {
 
     @inlinable
     public mutating func range(_ range: Swift.Range<Index<Bit>>) {
