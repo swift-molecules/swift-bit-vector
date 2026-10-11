@@ -1,4 +1,4 @@
-public import Carrier
+import Carrier
 public import Tagged
 public import Ownership
 public import Property

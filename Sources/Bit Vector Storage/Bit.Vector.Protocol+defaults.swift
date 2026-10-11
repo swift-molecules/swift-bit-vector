@@ -1,8 +1,6 @@
 import Carrier
 import Tagged
-import Cardinal
 import Property
-import Ownership
 public import Index
 public import Difference
 public import Cardinal

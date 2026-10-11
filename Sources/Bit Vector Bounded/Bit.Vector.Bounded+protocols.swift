@@ -1,7 +1,5 @@
 import Carrier
 import Tagged
-import Cardinal
-import Ordinal
 public import Ordinal
 public import Cardinal
 extension Bit.Vector.Bounded: Equatable {

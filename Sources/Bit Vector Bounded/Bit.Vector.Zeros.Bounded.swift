@@ -65,4 +65,4 @@ extension Bit.Vector.Zeros.Bounded: Iterable {
     }
 }
 
-extension Bit.Vector.Zeros.Bounded: Swift.Sequence {}
+extension Bit.Vector.Zeros.Bounded: Swift::Sequence {}

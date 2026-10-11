@@ -44,4 +44,4 @@ extension Bit.Vector.Ones.Inline: Iterable {
     }
 }
 
-extension Bit.Vector.Ones.Inline: Swift.Sequence {}
+extension Bit.Vector.Ones.Inline: Swift::Sequence {}

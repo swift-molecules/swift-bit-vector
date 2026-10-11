@@ -3,7 +3,7 @@ import Tagged
 public import Iterator
 import Sequence
 public import Index
-public import Ordinal
+import Ordinal
 
 extension Bit.Vector.Ones {
 
@@ -41,4 +41,4 @@ extension Bit.Vector.Ones.Static: Iterable {
     }
 }
 
-extension Bit.Vector.Ones.Static: Swift.Sequence {}
+extension Bit.Vector.Ones.Static: Swift::Sequence {}

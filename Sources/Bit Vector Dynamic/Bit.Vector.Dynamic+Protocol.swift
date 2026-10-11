@@ -1,4 +1,4 @@
-public import Carrier
+import Carrier
 public import Tagged
 public import Index
 public import Ordinal

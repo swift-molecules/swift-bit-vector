@@ -1,7 +1,6 @@
 import Carrier
 import Tagged
 import Property
-import Ownership
 public import Index
 public import Cardinal
 public import Ordinal

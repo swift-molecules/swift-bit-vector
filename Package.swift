@@ -119,7 +119,7 @@ let package = Package(
             dependencies: [
                 .product(name: "Carrier", package: "swift-carrier"),
 
-                "Bit Vector Storage",
+                .target(name: "Bit Vector Storage"),
                 .product(name: "Bit", package: "swift-bit"),
                 .product(name: "Sequence", package: "swift-sequence"),
                 .product(name: "Iterator", package: "swift-iterator"),
@@ -137,7 +137,7 @@ let package = Package(
             dependencies: [
                 .product(name: "Carrier", package: "swift-carrier"),
 
-                "Bit Vector Storage",
+                .target(name: "Bit Vector Storage"),
                 .product(name: "Property", package: "swift-property"),
                 .product(name: "Sequence", package: "swift-sequence"),
                 .product(name: "Iterator", package: "swift-iterator"),
@@ -154,7 +154,7 @@ let package = Package(
             dependencies: [
                 .product(name: "Carrier", package: "swift-carrier"),
 
-                "Bit Vector Storage",
+                .target(name: "Bit Vector Storage"),
                 .product(name: "Property", package: "swift-property"),
                 .product(name: "Ownership", package: "swift-ownership"),
                 .product(name: "Sequence", package: "swift-sequence"),
@@ -171,9 +171,9 @@ let package = Package(
             dependencies: [
                 .product(name: "Carrier", package: "swift-carrier"),
 
-                "Bit Vector Storage",
-                "Bit Vector Bounded",
-                "Bit Vector Inline",
+                .target(name: "Bit Vector Storage"),
+                .target(name: "Bit Vector Bounded"),
+                .target(name: "Bit Vector Inline"),
                 .product(name: "Property", package: "swift-property"),
                 .product(name: "Ownership", package: "swift-ownership"),
                 .product(name: "Iterator", package: "swift-iterator"),
@@ -188,18 +188,18 @@ let package = Package(
         .target(
             name: "Bit Vector",
             dependencies: [
-                "Bit Vector Storage",
-                "Bit Vector Static",
-                "Bit Vector Bounded",
-                "Bit Vector Inline",
-                "Bit Vector Dynamic",
+                .target(name: "Bit Vector Storage"),
+                .target(name: "Bit Vector Static"),
+                .target(name: "Bit Vector Bounded"),
+                .target(name: "Bit Vector Inline"),
+                .target(name: "Bit Vector Dynamic"),
             ]
         ),
 
         .target(
             name: "Bit Vector Test Support",
             dependencies: [
-                "Bit Vector",
+                .target(name: "Bit Vector"),
                 .product(
                     name: "Cardinal",
                     package: "swift-cardinal"
@@ -219,8 +219,8 @@ let package = Package(
         .testTarget(
             name: "Bit Vector Tests",
             dependencies: [
-                "Bit Vector",
-                "Bit Vector Test Support",
+                .target(name: "Bit Vector"),
+                .target(name: "Bit Vector Test Support"),
                 .product(name: "Index", package: "swift-index"),
                 .product(name: "Iterator", package: "swift-iterator"),
                 .product(name: "Ownership", package: "swift-ownership"),
@@ -234,17 +234,14 @@ let package = Package(
 )
 
 for target in package.targets where ![.system, .binary, .plugin, .macro].contains(target.type) {
-    let ecosystem: [SwiftSetting] = [
+    target.swiftSettings = (target.swiftSettings ?? []) + [
         .strictMemorySafety(),
         .enableUpcomingFeature("ExistentialAny"),
         .enableUpcomingFeature("InternalImportsByDefault"),
         .enableUpcomingFeature("MemberImportVisibility"),
         .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
-        .enableExperimentalFeature("Lifetimes"),
         .enableUpcomingFeature("InferIsolatedConformances"),
+        .enableExperimentalFeature("Lifetimes"),
+        .treatAllWarnings(as: .error),
     ]
-
-    let package: [SwiftSetting] = []
-
-    target.swiftSettings = (target.swiftSettings ?? []) + ecosystem + package
 }

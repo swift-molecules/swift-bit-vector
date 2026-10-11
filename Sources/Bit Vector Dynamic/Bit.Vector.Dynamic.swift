@@ -1,5 +1,4 @@
 import Carrier
-import Tagged
 public import Cardinal
 public import Tagged
 import Difference
@@ -46,7 +45,7 @@ extension Bit.Vector {
         }
 
         @inlinable
-        public init<S: Swift.Sequence>(_ elements: S) where S.Element == Bool {
+        public init<S: Swift::Sequence>(_ elements: S) where S.Element == Bool {
             self.init()
             for element in elements {
                 append(element)
@@ -54,7 +53,7 @@ extension Bit.Vector {
         }
 
         @inlinable
-        public init<S: Swift.Sequence>(_ elements: S) where S.Element == Bit {
+        public init<S: Swift::Sequence>(_ elements: S) where S.Element == Bit {
             self.init()
             for element in elements {
                 append(element == .one)

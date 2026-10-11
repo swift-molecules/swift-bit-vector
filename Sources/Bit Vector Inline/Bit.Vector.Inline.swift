@@ -1,11 +1,9 @@
 import Carrier
-import Tagged
 public import Cardinal
 public import Tagged
 public import Ordinal
-public import Property
+import Property
 import Difference
-import Cardinal
 public import Index
 extension Bit.Vector {
 

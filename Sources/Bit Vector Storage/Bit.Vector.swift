@@ -1,7 +1,5 @@
 import Carrier
 import Tagged
-import Cardinal
-import Ordinal
 public import Bit
 public import Index
 public import Cardinal

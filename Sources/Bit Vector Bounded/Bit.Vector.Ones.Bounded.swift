@@ -44,4 +44,4 @@ extension Bit.Vector.Ones.Bounded: Iterable {
     }
 }
 
-extension Bit.Vector.Ones.Bounded: Swift.Sequence {}
+extension Bit.Vector.Ones.Bounded: Swift::Sequence {}

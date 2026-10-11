@@ -61,4 +61,4 @@ extension Bit.Vector.Zeros.Static: Iterable {
     }
 }
 
-extension Bit.Vector.Zeros.Static: Swift.Sequence {}
+extension Bit.Vector.Zeros.Static: Swift::Sequence {}

@@ -3,7 +3,7 @@ import Tagged
 public import Iterator
 import Sequence
 public import Index
-public import Ordinal
+import Ordinal
 
 extension Bit.Vector.Ones.View: Iterable {
 

@@ -3,7 +3,6 @@ public import Ordinal
 import Carrier
 import Tagged
 import Cardinal
-import Ordinal
 
 extension Bit.Vector.Zeros {
 

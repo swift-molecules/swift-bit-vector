@@ -1,9 +1,8 @@
 import Carrier
-import Tagged
 public import Cardinal
 public import Tagged
 public import Ordinal
-public import Property
+import Property
 import Difference
 public import Index
 extension Bit.Vector {
@@ -38,7 +37,7 @@ extension Bit.Vector {
         }
 
         @inlinable
-        public init<S: Swift.Sequence>(capacity: Index<Bit>.Count, _ elements: S) throws(Self.Error)
+        public init<S: Swift::Sequence>(capacity: Index<Bit>.Count, _ elements: S) throws(Self.Error)
         where S.Element == Bool {
             self.init(capacity: capacity)
             for element in elements {

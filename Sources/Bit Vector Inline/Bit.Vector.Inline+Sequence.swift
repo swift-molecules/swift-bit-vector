@@ -1,5 +1,5 @@
 public import Cardinal
-extension Bit.Vector.Inline: Swift.Sequence {
+extension Bit.Vector.Inline: Swift::Sequence {
 
     public struct Iterator: BitVectorElementIteratorProtocol, IteratorProtocol, Sendable {
         @usableFromInline

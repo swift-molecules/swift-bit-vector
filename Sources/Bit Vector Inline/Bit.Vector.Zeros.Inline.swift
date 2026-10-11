@@ -44,4 +44,4 @@ extension Bit.Vector.Zeros.Inline: Iterable {
     }
 }
 
-extension Bit.Vector.Zeros.Inline: Swift.Sequence {}
+extension Bit.Vector.Zeros.Inline: Swift::Sequence {}

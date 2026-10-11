@@ -1,18 +1,15 @@
 public import Difference
 import Carrier
-import Tagged
 public import Cardinal
 public import Tagged
 public import Ordinal
 public import Property
-import Property
-import Ownership
 public import Index
 public import Ownership
 extension Property.Inout where Tag == Bit.Vector.Set, Base: _BitVectorProtocol & ~Copyable {
 
     @inlinable
-    public mutating func range(_ range: Swift.Range<Index<Bit>>) {
+    public mutating func range(_ range: Swift::Range<Index<Bit>>) {
         guard range.upperBound > range.lowerBound else { return }
 
         let startLoc = Bit.Pack<UInt>.Location(index: range.lowerBound, bitsPerWord: .bitsPerWord)

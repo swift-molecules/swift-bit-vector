@@ -1,6 +1,5 @@
 import Property
 public import Cardinal
-import Ownership
 import Tagged
 public import Ownership
 extension Bit.Vector.Inline {
