@@ -1,6 +1,5 @@
-import Property
-
 public import Cardinal
+import Property
 
 extension Bit.Vector.Bounded {
 

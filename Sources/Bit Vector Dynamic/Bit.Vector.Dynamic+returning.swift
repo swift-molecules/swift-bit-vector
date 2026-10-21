@@ -1,9 +1,9 @@
 import Carrier
-import Tagged
-import Property
 public import Index
 import Ordinal
 public import Ownership
+import Property
+import Tagged
 
 extension Bit.Vector.Dynamic {
 

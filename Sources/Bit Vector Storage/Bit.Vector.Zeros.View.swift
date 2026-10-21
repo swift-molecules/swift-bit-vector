@@ -1,8 +1,8 @@
+import Cardinal
+import Carrier
 public import Index
 public import Ordinal
-import Carrier
 import Tagged
-import Cardinal
 
 extension Bit.Vector.Zeros {
 

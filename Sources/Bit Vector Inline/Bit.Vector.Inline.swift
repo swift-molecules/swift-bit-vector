@@ -1,10 +1,11 @@
-import Carrier
 public import Cardinal
-public import Tagged
-public import Ordinal
-import Property
+import Carrier
 import Difference
 public import Index
+public import Ordinal
+import Property
+public import Tagged
+
 extension Bit.Vector {
 
     public struct Inline<let wordCount: Int>: Sendable {
@@ -49,7 +50,13 @@ extension Bit.Vector {
                 let pack = Bit.Pack<UInt>(count: count, bitsPerWord: .bitsPerWord)
                 if pack.bits.unused > .zero {
 
-                    let lastWordIndex = try! pack.words.count.map(Ordinal.init).predecessor.exact()
+                    let lastWordIndex = {
+                        do {
+                            return try pack.words.count.map(Ordinal.init).predecessor.exact()
+                        } catch {
+                            preconditionFailure("The last word index exists because the bit count is positive: \(error)")
+                        }
+                    }()
                     let mask: UInt = ~0 >> pack.bits.unused
                     _storage[lastWordIndex] = mask
                 }

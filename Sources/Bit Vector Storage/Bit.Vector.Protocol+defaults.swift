@@ -1,11 +1,12 @@
-import Carrier
-import Tagged
-import Property
-public import Index
-public import Difference
 public import Cardinal
+import Carrier
+public import Difference
+public import Index
 public import Ordinal
 public import Ownership
+import Property
+import Tagged
+
 extension _BitVectorProtocol where Self: ~Copyable {
 
     @inlinable

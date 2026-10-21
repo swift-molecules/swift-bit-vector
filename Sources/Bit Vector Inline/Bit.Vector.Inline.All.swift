@@ -1,7 +1,8 @@
-import Property
 public import Cardinal
-import Tagged
 public import Ownership
+import Property
+import Tagged
+
 extension Bit.Vector.Inline {
 
     public enum All: Sendable {}

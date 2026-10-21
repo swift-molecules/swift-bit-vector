@@ -1,7 +1,8 @@
 import Carrier
-import Tagged
 public import Index
 public import Ordinal
+import Tagged
+
 extension Bit.Vector.Static: Bit.Vector.`Protocol` {
 
     @inlinable

@@ -1,9 +1,10 @@
-import Carrier
 public import Cardinal
-public import Tagged
-import Property
+import Carrier
 public import Index
 public import Ordinal
+import Property
+public import Tagged
+
 extension Bit.Vector.Bounded {
 
     public enum Capacity: Sendable {}

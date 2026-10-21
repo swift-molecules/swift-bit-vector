@@ -1,4 +1,5 @@
 public import Cardinal
+
 extension Bit.Vector.Inline: Equatable {
 
     @inlinable

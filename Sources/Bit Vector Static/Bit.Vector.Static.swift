@@ -1,9 +1,10 @@
-import Carrier
-import Tagged
 public import Bit
-public import Index
 import Cardinal
+import Carrier
+public import Index
 public import Ordinal
+import Tagged
+
 extension Bit.Vector {
 
     public struct Static<let wordCount: Int>: Sendable {

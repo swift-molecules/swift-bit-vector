@@ -1,10 +1,11 @@
+public import Cardinal
 import Carrier
-public import Tagged
+public import Index
+public import Ordinal
 public import Ownership
 public import Property
-public import Index
-public import Cardinal
-public import Ordinal
+public import Tagged
+
 extension Bit.Vector.Dynamic {
 
     @inlinable

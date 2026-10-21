@@ -1,8 +1,8 @@
-import Carrier
-import Tagged
 import Cardinal
-import Ordinal
+import Carrier
 import Difference
+import Ordinal
+import Tagged
 
 extension Bit.Vector.Dynamic {
 

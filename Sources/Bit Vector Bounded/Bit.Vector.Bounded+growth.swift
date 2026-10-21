@@ -1,7 +1,8 @@
-import Difference
 public import Cardinal
-public import Tagged
+import Difference
 public import Ordinal
+public import Tagged
+
 extension Bit.Vector.Bounded {
 
     @inlinable

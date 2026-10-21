@@ -1,8 +1,9 @@
-import Carrier
-import Tagged
 import Cardinal
+import Carrier
 public import Index
 public import Ordinal
+import Tagged
+
 extension Bit.Vector.Zeros.Inline {
 
     @safe
@@ -53,9 +54,9 @@ extension Bit.Vector.Zeros.Inline.ElementIterator {
         let baseBitCount = wordCount * .bitsPerWord
         let globalIndex =
             baseBitCount.map(Ordinal.init)
-                + Tagged<Bit, Cardinal>(
-                    _unchecked: Cardinal(UInt(bitPosition))
-                )
+            + Tagged<Bit, Cardinal>(
+                _unchecked: Cardinal(UInt(bitPosition))
+            )
 
         guard globalIndex < _capacity else { return nil }
         return globalIndex

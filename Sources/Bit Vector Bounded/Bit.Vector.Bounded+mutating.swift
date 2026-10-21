@@ -1,10 +1,11 @@
-import Carrier
 public import Cardinal
+import Carrier
+import Difference
+public import Index
 public import Ordinal
 import Property
 public import Tagged
-import Difference
-public import Index
+
 extension Bit.Vector.Bounded {
 
     @inlinable
@@ -45,7 +46,13 @@ extension Bit.Vector.Bounded {
         }
         if pack.bits.unused > .zero && pack.words.count > .zero {
 
-            let lastWord = try! end.predecessor.exact()
+            let lastWord = {
+                do {
+                    return try end.predecessor.exact()
+                } catch {
+                    preconditionFailure("The last word index exists because the bit count is positive: \(error)")
+                }
+            }()
             let mask: UInt = ~0 >> pack.bits.unused
             _storage[lastWord] = mask
         }

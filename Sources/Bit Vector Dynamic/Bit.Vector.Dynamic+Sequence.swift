@@ -1,4 +1,5 @@
 public import Cardinal
+
 extension Bit.Vector.Dynamic: Swift::Sequence {
 
     public struct Iterator: BitVectorElementIteratorProtocol, IteratorProtocol, Sendable {

@@ -1,8 +1,9 @@
 public import Cardinal
 import Carrier
+public import Index
 public import Ordinal
 public import Tagged
-public import Index
+
 extension Bit.Vector.Zeros.View {
 
     @safe
@@ -62,9 +63,9 @@ extension Bit.Vector.Zeros.View.ElementIterator {
         let baseBitCount = wordAsCount * .bitsPerWord
         let globalIndex =
             baseBitCount.map(Ordinal.init)
-                + Tagged<Bit, Cardinal>(
-                    _unchecked: Cardinal(UInt(bitPosition))
-                )
+            + Tagged<Bit, Cardinal>(
+                _unchecked: Cardinal(UInt(bitPosition))
+            )
 
         guard globalIndex < _capacity else { return nil }
         return globalIndex

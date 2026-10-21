@@ -1,9 +1,9 @@
 import Carrier
-import Tagged
-public import Iterator
-import Sequence
 public import Index
+public import Iterator
 import Ordinal
+import Sequence
+import Tagged
 
 extension Bit.Vector.Ones.View: Iterable {
 

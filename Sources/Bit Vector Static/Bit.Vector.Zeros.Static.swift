@@ -1,10 +1,11 @@
 import Carrier
-import Tagged
 public import Difference
-public import Iterator
-import Sequence
 public import Index
+public import Iterator
 public import Ordinal
+import Sequence
+import Tagged
+
 extension Bit.Vector.Zeros {
 
     @safe

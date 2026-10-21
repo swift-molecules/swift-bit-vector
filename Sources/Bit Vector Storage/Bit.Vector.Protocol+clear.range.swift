@@ -1,11 +1,12 @@
-public import Difference
-import Carrier
 public import Cardinal
-public import Tagged
-public import Ordinal
-public import Property
+import Carrier
+public import Difference
 public import Index
+public import Ordinal
 public import Ownership
+public import Property
+public import Tagged
+
 extension Property.Inout where Tag == Bit.Vector.Clear, Base: _BitVectorProtocol & ~Copyable {
 
     @inlinable
@@ -14,7 +15,13 @@ extension Property.Inout where Tag == Bit.Vector.Clear, Base: _BitVectorProtocol
 
         let startLoc = Bit.Pack<UInt>.Location(index: range.lowerBound, bitsPerWord: .bitsPerWord)
 
-        let endIndex = try! range.upperBound.predecessor.exact()
+        let endIndex = {
+            do {
+                return try range.upperBound.predecessor.exact()
+            } catch {
+                preconditionFailure("A non-empty range has a predecessor of its upper bound: \(error)")
+            }
+        }()
         let endLoc = Bit.Pack<UInt>.Location(
             index: endIndex,
             bitsPerWord: .bitsPerWord
@@ -31,9 +38,21 @@ extension Property.Inout where Tag == Bit.Vector.Clear, Base: _BitVectorProtocol
 
         let lowMask: UInt = ~0 << startBit
 
-        let maxBitIndex = try! Bit.Pack<UInt>.bitWidth.subtract.exact(.one)
+        let maxBitIndex = {
+            do {
+                return try Bit.Pack<UInt>.bitWidth.subtract.exact(.one)
+            } catch {
+                preconditionFailure("A word has at least one bit: \(error)")
+            }
+        }()
 
-        let highShift = try! maxBitIndex.subtract.exact(endBit)
+        let highShift = {
+            do {
+                return try maxBitIndex.subtract.exact(endBit)
+            } catch {
+                preconditionFailure("The end bit does not exceed the highest bit index: \(error)")
+            }
+        }()
         let highMask: UInt = ~0 >> highShift
 
         if startWord == endWord {

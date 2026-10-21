@@ -1,9 +1,10 @@
-import Carrier
-import Tagged
 public import Bit
-public import Index
 public import Cardinal
+import Carrier
+public import Index
 public import Ordinal
+import Tagged
+
 extension Bit {
 
     @safe
@@ -29,7 +30,10 @@ extension Bit {
                 unsafe _words.initialize(repeating: 0, count: wordCount)
             } else {
 
-                unsafe self._words = .init(bitPattern: 0x1)!
+                guard let sentinel = UnsafeMutablePointer<UInt>(bitPattern: 0x1) else {
+                    preconditionFailure("The address 0x1 is non-null")
+                }
+                unsafe self._words = sentinel
             }
         }
 

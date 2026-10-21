@@ -1,10 +1,10 @@
-import Carrier
-import Tagged
-import Property
-public import Index
 public import Cardinal
+import Carrier
+public import Index
 public import Ordinal
 public import Ownership
+import Property
+import Tagged
 
 extension Bit.Vector.Dynamic {
 

@@ -1,9 +1,9 @@
 import Bit_Vector
 import Bit_Vector_Test_Support
 import Cardinal
+import Index
 import Iterator
 import Testing
-import Index
 
 extension Bit.Vector {
     @Suite("Bit.Vector Tests")

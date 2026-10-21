@@ -1,8 +1,9 @@
-import Carrier
-import Tagged
 import Cardinal
+import Carrier
 public import Index
 public import Ordinal
+import Tagged
+
 extension Bit.Vector.Zeros.Static {
 
     @safe

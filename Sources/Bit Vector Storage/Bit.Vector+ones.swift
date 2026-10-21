@@ -1,4 +1,3 @@
-
 extension Bit.Vector {
 
     @inlinable

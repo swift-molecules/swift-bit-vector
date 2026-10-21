@@ -1,7 +1,8 @@
-import Carrier
-import Tagged
-public import Ordinal
 public import Cardinal
+import Carrier
+public import Ordinal
+import Tagged
+
 extension Bit.Vector.Bounded: Equatable {
 
     @inlinable
