@@ -30,7 +30,7 @@ extension Bit {
                 unsafe _words.initialize(repeating: 0, count: wordCount)
             } else {
 
-                guard let sentinel = UnsafeMutablePointer<UInt>(bitPattern: 0x1) else {
+                guard let sentinel = unsafe UnsafeMutablePointer<UInt>(bitPattern: 0x1) else {
                     preconditionFailure("The address 0x1 is non-null")
                 }
                 unsafe self._words = sentinel
