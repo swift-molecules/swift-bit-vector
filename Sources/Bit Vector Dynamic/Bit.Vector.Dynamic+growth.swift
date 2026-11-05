@@ -77,11 +77,22 @@ extension Bit.Vector.Dynamic {
             _storage.removeLast(oldWordCount - newWordCount)
         }
 
-        if fill && newCount > _count && oldWordCount > 0 {
+        // `_storage` can hold spare zero words past the old count (after
+        // `popLast`, `removeLast`, `removeAll(keepingCapacity: true)` or
+        // `init(_ bounded:)`), so fill every kept word from the old count up.
+        if fill && newCount > _count {
             let oldLoc = Bit.Pack<UInt>.Location(count: _count, bitsPerWord: .bitsPerWord)
-            if oldLoc.bit > .zero && oldLoc.word < newPack.words.count {
+            var firstFullWord = Int(bitPattern: oldLoc.word)
+            if oldLoc.bit > .zero {
                 let highMask: UInt = ~0 << oldLoc.bit.underlying.magnitude.value.rawValue
                 _storage[oldLoc.word] |= highMask
+                firstFullWord += 1
+            }
+            let keptWordCount = Swift.min(oldWordCount, newWordCount)
+            if firstFullWord < keptWordCount {
+                for i in firstFullWord..<keptWordCount {
+                    _storage[i] = ~0
+                }
             }
         }
 

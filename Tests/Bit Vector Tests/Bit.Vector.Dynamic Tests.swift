@@ -272,4 +272,40 @@ extension BitVectorDynamicTests.`Edge Case` {
         #expect(bits.count == 1000)
         #expect(bits.popcount == 3)
     }
+
+    @Test
+    func `Resize fill after removeAll keeping capacity`() {
+        var bits = Bit.Vector.Dynamic(repeating: true, count: 128)
+        bits.removeAll(keepingCapacity: true)
+        bits.resize(to: 128, fill: true)
+
+        #expect(bits.count == 128)
+        #expect(bits.popcount == 128)
+    }
+
+    @Test
+    func `Resize fill after popLast leaves a spare word`() {
+        var bits = Bit.Vector.Dynamic(repeating: false, count: 65)
+        bits.popLast()
+        bits.resize(to: 128, fill: true)
+
+        #expect(bits.count == 128)
+        #expect(bits.popcount == 64)
+        #expect(bits[63] == false)
+        #expect(bits[64] == true)
+        #expect(bits[127] == true)
+    }
+
+    @Test
+    func `Resize fill after removeLast within a partial word`() {
+        var bits = Bit.Vector.Dynamic(repeating: false, count: 130)
+        for _ in 0..<70 { bits.removeLast() }
+        bits.resize(to: 130, fill: true)
+
+        #expect(bits.count == 130)
+        #expect(bits.popcount == 70)
+        #expect(bits[59] == false)
+        #expect(bits[60] == true)
+        #expect(bits[129] == true)
+    }
 }
