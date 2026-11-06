@@ -5,7 +5,9 @@ import Index
 import Iterator
 import Testing
 
-extension Bit.Vector {
+enum `Bit.Vector Tests` {}
+
+extension `Bit.Vector Tests` {
     @Suite("Bit.Vector Tests")
     struct Test {
         @Test
@@ -128,14 +130,14 @@ extension Bit.Vector {
     }
 }
 
-extension Bit.Vector {
+extension `Bit.Vector Tests` {
     @Suite(.serialized) struct `Bounds Safety` {
         @Suite struct Unit {}
         @Suite struct `Edge Case` {}
     }
 }
 
-extension Bit.Vector.`Bounds Safety`.Unit {
+extension `Bit.Vector Tests`.`Bounds Safety`.Unit {
     @Test
     func `subscript get at the last valid index does not trap`() {
         let bits = Bit.Vector(capacity: 8)
@@ -150,7 +152,7 @@ extension Bit.Vector.`Bounds Safety`.Unit {
     }
 }
 
-extension Bit.Vector.`Bounds Safety`.`Edge Case` {
+extension `Bit.Vector Tests`.`Bounds Safety`.`Edge Case` {
     @Test
     func `subscript get traps when index is out of bounds`() async {
         await #expect(processExitsWith: .failure) {
