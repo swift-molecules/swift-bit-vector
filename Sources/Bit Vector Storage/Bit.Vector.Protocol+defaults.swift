@@ -20,7 +20,7 @@ extension _BitVectorProtocol where Self: ~Copyable {
     @inlinable
     public var popcount: Index<Bit>.Count {
         var total: UInt = 0
-        for i in 0..<wordCount {
+        (0..<wordCount).forEach { i in
             total += UInt(word(at: i).nonzeroBitCount)
         }
         return Tagged<Bit, Cardinal>(_unchecked: Cardinal(total))
@@ -47,7 +47,7 @@ extension _BitVectorProtocol where Self: ~Copyable {
 
     @inlinable
     public static func clearAll(_ vector: inout Self) {
-        for i in 0..<vector.wordCount {
+        (0..<vector.wordCount).forEach { i in
             vector.setWord(at: i, to: 0)
         }
     }
@@ -56,7 +56,7 @@ extension _BitVectorProtocol where Self: ~Copyable {
     public static func setAll(_ vector: inout Self) {
         let pack = Bit.Pack<UInt>(count: vector.bitCapacity, bitsPerWord: .bitsPerWord)
         let wc = vector.wordCount
-        for i in 0..<wc {
+        (0..<wc).forEach { i in
             vector.setWord(at: i, to: ~0)
         }
         if pack.bits.unused > .zero && wc > 0 {

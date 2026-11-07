@@ -43,7 +43,7 @@ extension Bit.Vector.Bounded {
 
     @inlinable
     public mutating func removeAll() {
-        for i in 0..<_storage.count {
+        (0..<_storage.count).forEach { i in
             _storage[i] = 0
         }
         _count = .zero

@@ -43,7 +43,7 @@ extension Bit.Vector.Inline {
 
     @inlinable
     public mutating func removeAll() {
-        for i in 0..<wordCount {
+        (0..<wordCount).forEach { i in
             _storage[i] = 0
         }
         _count = .zero

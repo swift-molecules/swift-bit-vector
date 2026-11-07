@@ -76,7 +76,7 @@ extension Bit.Vector {
                 }
 
                 let countWords = Int(bitPattern: countPack.words.count)
-                for i in countWords..<_storage.count {
+                (countWords..<_storage.count).forEach { i in
                     _storage[i] = 0
                 }
             }

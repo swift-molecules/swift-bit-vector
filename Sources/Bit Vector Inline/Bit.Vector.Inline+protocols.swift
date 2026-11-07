@@ -17,7 +17,7 @@ extension Bit.Vector.Inline: Hashable {
     @inlinable
     public func hash(into hasher: inout Hasher) {
         hasher.combine(_count)
-        for i in 0..<wordCount {
+        (0..<wordCount).forEach { i in
             hasher.combine(_storage[i])
         }
     }
